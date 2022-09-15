@@ -9,7 +9,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * JavaFX Library App
+ * Created by:
+ * Christopher Canenguez,
+ * Kulsom Zaraei,
+ * and Shameed Job!
  */
 public class App extends Application {
 
