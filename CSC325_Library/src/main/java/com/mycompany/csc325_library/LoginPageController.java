@@ -35,12 +35,12 @@ public class LoginPageController implements Initializable {
     } // End initialize.
     
     @FXML
-    public void login()
+    public void loginButton()
     {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
         try 
         {
-            root = fxmlLoader.load();
+            root = loginLoader.load();
         } catch (IOException ex) 
         {
             ex.printStackTrace();

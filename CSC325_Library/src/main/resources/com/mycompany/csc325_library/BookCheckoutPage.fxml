@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.mycompany.csc325_library.BookCheckoutPageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325_library.BookCheckoutPageController">
     <stylesheets>
         <URL value="@/com/mycompany/csc325_library/bookcheckoutpage.css" />
     </stylesheets>
@@ -42,7 +42,7 @@
                   <Font name="Tahoma Bold" size="13.0" />
                </font>
             </TextField>
-            <Button fx:id="loginButton" layoutX="420.0" layoutY="330.0" mnemonicParsing="false" onAction="#login" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Checkout">
+            <Button fx:id="loginButton" layoutX="420.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Checkout">
                <font>
                   <Font size="16.0" />
                </font>
