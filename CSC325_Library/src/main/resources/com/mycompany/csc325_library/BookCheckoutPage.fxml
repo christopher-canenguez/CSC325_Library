@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325_library.BookCheckoutPageController">
+    <stylesheets>
+        <URL value="@/com/mycompany/csc325_library/bookcheckoutpage.css" />
+    </stylesheets>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #00c04b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="375.0" layoutX="246.0" layoutY="13.0" stroke="WHITE" strokeType="INSIDE" width="329.0" />
+            <Label alignment="CENTER" layoutX="218.0" layoutY="31.0" prefHeight="17.0" prefWidth="368.0" text="Book Checkout" textFill="#00c04b">
+               <font>
+                  <Font name="Tahoma Bold" size="30.0" />
+               </font>
+            </Label>
+            <TextField focusTraversable="false" layoutX="280.0" layoutY="88.0" pickOnBounds="false" prefHeight="38.0" prefWidth="245.0" promptText="Account Number" style="-fx-border-color: #00c04b; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" layoutX="280.0" layoutY="148.0" pickOnBounds="false" prefHeight="38.0" prefWidth="245.0" promptText="Book ISBN Number" style="-fx-border-color: #00c04b; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" layoutX="280.0" layoutY="211.0" pickOnBounds="false" prefHeight="38.0" prefWidth="245.0" promptText="Today's Date (xx/xx/xxxx)" style="-fx-border-color: #00c04b; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <TextField focusTraversable="false" layoutX="280.0" layoutY="272.0" pickOnBounds="false" prefHeight="38.0" prefWidth="245.0" promptText="Account Pin Number (####)" style="-fx-border-color: #00c04b; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <Button fx:id="loginButton" layoutX="420.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Checkout">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="29.0" layoutY="39.0" prefHeight="323.0" prefWidth="176.0" text="A Mind Needs Books As A Sword Needs A Whetstone If It Is To Keep Its Edge. - Tyrion Lannister, Game of Thrones" textAlignment="CENTER" textFill="#fff8f8" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
