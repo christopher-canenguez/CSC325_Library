@@ -44,8 +44,8 @@ public class LoginPageController implements Initializable {
         } catch (IOException ex) 
         {
             ex.printStackTrace();
-        }
-        // Gets the MainMenuController.
+        } // End catch.
+        // Gets the MainMenuPageController.
 
         // Sets stage.
         Stage stage = new Stage();
