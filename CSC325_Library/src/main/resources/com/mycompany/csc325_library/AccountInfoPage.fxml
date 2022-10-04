@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325_library.AccountInfoPageController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.mycompany.csc325_library.AccountInfoPageController">
     <stylesheets>
-        <URL value="@accountinfopage.css"/>
+        <URL value="@accountinfopage.css" />
     </stylesheets>
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E11584;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="372.0" layoutX="253.0" layoutY="14.0" stroke="WHITE" strokeType="INSIDE" width="325.0" />
+            <Label alignment="CENTER" layoutX="252.0" layoutY="31.0" prefHeight="37.0" prefWidth="325.0" text="Account Information" textFill="#e11584">
+               <font>
+                  <Font name="Tahoma Bold" size="29.0" />
+               </font>
+            </Label>
+            <TextField editable="false" focusTraversable="false" layoutX="367.0" layoutY="110.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Holder Name" style="-fx-border-color: #e11584; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="258.0" layoutY="100.0" prefHeight="52.0" prefWidth="109.0" text="Account Holder Name" textAlignment="CENTER" textFill="#e11584" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="265.0" layoutY="174.0" prefHeight="52.0" prefWidth="95.0" text="Account Number" textAlignment="CENTER" textFill="#e11584" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField editable="false" focusTraversable="false" layoutX="367.0" layoutY="184.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Number" style="-fx-border-color: #e11584; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="265.0" layoutY="265.0" text="Account Pin" textFill="#e11584">
+               <font>
+                  <Font name="Tahoma Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField editable="false" focusTraversable="false" layoutX="367.0" layoutY="258.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Pin" style="-fx-border-color: #e11584; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+               <font>
+                  <Font name="Tahoma Bold" size="13.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="26.0" layoutY="191.0" prefHeight="177.0" prefWidth="207.0" text="If you are going to get anywhere in life you have to read alot of books. - Roald Dahl" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="Tahoma Bold" size="22.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
