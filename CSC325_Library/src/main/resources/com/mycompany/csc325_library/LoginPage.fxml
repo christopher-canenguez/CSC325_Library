@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.csc325_library.LoginPageController">
    <children>
       <Pane layoutY="-1.0" prefHeight="402.0" prefWidth="600.0" style="-fx-background-color: #9400d3;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -37,7 +37,7 @@
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font></TextField>
-      <Button layoutX="458.0" layoutY="283.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="75.0" stylesheets="@loginpage.css" text="Login">
+      <Button fx:id="loginButton" layoutX="458.0" layoutY="283.0" mnemonicParsing="false" onAction="#login" prefHeight="33.0" prefWidth="75.0" stylesheets="@loginpage.css" text="Login">
          <font>
             <Font size="16.0" />
          </font></Button>
