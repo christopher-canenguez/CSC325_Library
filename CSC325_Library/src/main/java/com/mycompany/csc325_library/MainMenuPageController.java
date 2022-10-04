@@ -42,9 +42,11 @@ public class MainMenuPageController implements Initializable {
 
     @FXML
     public void goToCheckoutButton() throws IOException {
+        // Retrieves Loader for BookCheckout page.
         FXMLLoader checkoutLoader = new FXMLLoader(getClass().getResource("BookCheckoutPage.fxml"));
         root1 = checkoutLoader.load();
 
+        // Creates and loads scene.
         Stage stage = new Stage();
         stage.setScene(new Scene(root1));
         stage.show();
@@ -52,9 +54,11 @@ public class MainMenuPageController implements Initializable {
 
     @FXML
     public void goToAccountInfo() throws IOException {
+         // Retrieves Loader for AccountInfo page.
         FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
         root2 = accountLoader.load();
 
+        // Creates and loads scene.
         Stage stage = new Stage();
         stage.setScene(new Scene(root2));
         stage.show();
@@ -62,6 +66,7 @@ public class MainMenuPageController implements Initializable {
 
     @FXML
     public void logoutButton(ActionEvent event) {
+        // Gets current scene when button is clicked then closes window.
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         stage.close();
     } // End logoutButton.
