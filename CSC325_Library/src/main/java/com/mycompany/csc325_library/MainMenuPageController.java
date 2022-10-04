@@ -21,7 +21,8 @@ import javafx.stage.Stage;
  */
 public class MainMenuPageController implements Initializable {
 
-    private Parent root;
+    private Parent root1;
+    private Parent root2;
 
     /**
      * Initializes the controller class.
@@ -37,10 +38,21 @@ public class MainMenuPageController implements Initializable {
     public void goToCheckoutButton() throws IOException
     {
         FXMLLoader checkoutLoader = new FXMLLoader(getClass().getResource("BookCheckoutPage.fxml"));
-        root = checkoutLoader.load();
+        root1 = checkoutLoader.load();
         
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root1));
+        stage.show();
+    } // End goToCheckoutButton.
+    
+    @FXML
+    public void goToAccountInfo() throws IOException
+    {
+        FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
+        root2 = accountLoader.load();
+        
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root2));
         stage.show();
     } // End goToCheckoutButton.
 } // End MainMenuPageController.
