@@ -1,6 +1,6 @@
 # CSC325_Library for CSC325 - Software Engineering
 # Created by Christopher Canenguez, Kulsom Zaraei and Shameed Job
-# Trello/Kanban - https://trello.com/b/WCGhCAJD/csc325library-kanban
+# Kanban - https://github.com/users/christopher-canenguez/projects/3/views/1
 ---------------------------------------------------
 # WRSPM Model
 # World Assumption:
