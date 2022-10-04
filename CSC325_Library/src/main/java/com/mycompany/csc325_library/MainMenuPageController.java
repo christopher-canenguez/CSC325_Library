@@ -42,5 +42,5 @@ public class MainMenuPageController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
-    }
-}
+    } // End goToCheckoutButton.
+} // End MainMenuPageController.
