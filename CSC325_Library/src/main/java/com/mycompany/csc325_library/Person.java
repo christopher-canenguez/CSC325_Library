@@ -71,8 +71,8 @@ public class Person {
  
    @Override
     public String toString() {
-        String personString = "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", personID=" + personID + '}';
-        return personString;
+        String personInfo = "Person Information - " + "firstName: " + firstName + ", lastName: " + lastName + ", personID: " + personID;
+        return personInfo;
     }
     
     
