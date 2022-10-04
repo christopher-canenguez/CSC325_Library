@@ -35,19 +35,13 @@ public class LoginPageController implements Initializable {
     } // End initialize.
     
     @FXML
-    public void loginButton()
+    public void loginButton() throws IOException
     {
+        // Gets loader for MainMenu page.
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
-        try 
-        {
-            root = loginLoader.load();
-        } catch (IOException ex) 
-        {
-            ex.printStackTrace();
-        } // End catch.
-        // Gets the MainMenuPageController.
+        root = loginLoader.load();
 
-        // Sets stage.
+        // Sets stage and opens window.
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
