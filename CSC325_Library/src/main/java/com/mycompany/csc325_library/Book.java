@@ -82,7 +82,7 @@ public class Book {
     
     @Override
     public String toString() {
-       String bookInfo =  "Book Information :" +  "title=" + title + ", author=" + author + ", isbn=" + isbn + ", status=" + status + ", holder=" + holder;
+       String bookInfo =  "Book Information:" +  "title=" + title + ", author=" + author + ", isbn=" + isbn + ", status=" + status + ", holder=" + holder;
         return bookInfo;
     }
 
