@@ -21,6 +21,7 @@ public class MainMenuPageController implements Initializable {
 
     private Parent root1;
     private Parent root2;
+    private Parent root3;
     
     @FXML
     public Button logoutButton;
@@ -49,7 +50,7 @@ public class MainMenuPageController implements Initializable {
     } // End goToCheckoutButton.
 
     @FXML
-    public void goToAccountInfo() throws IOException {
+    public void goToAccountInfoButton() throws IOException {
          // Retrieves Loader for AccountInfo page.
         FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
         root2 = accountLoader.load();
@@ -58,7 +59,19 @@ public class MainMenuPageController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root2));
         stage.show();
-    } // End goToAccountInfo.
+    } // End goToAccountInfoButton.
+    
+    @FXML
+    public void goToDatabaseButton() throws IOException {
+         // Retrieves Loader for Database page.
+        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
+        root3 = databaseLoader.load();
+
+        // Creates and loads scene.
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root3));
+        stage.show();
+    } // End goToDatabaseButton.
 
     @FXML
     public void logoutButton(ActionEvent event) {
