@@ -13,7 +13,7 @@ import javafx.stage.Stage;
  *
  * @author Chris Canenguez
  */
-public class AccountInfoPageController implements Initializable {
+public class DatabasePageController implements Initializable {
 
     @FXML
     public Button exitButton;
@@ -32,4 +32,4 @@ public class AccountInfoPageController implements Initializable {
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
     } // End exitButtonEvent.
-} // End AccountInfoPageController.
+} // End DatabasePageController.

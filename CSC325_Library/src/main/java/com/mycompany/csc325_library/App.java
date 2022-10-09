@@ -39,5 +39,4 @@ public class App extends Application {
         System.out.println("Hello CSC325!");
         launch();
     }
-
 }

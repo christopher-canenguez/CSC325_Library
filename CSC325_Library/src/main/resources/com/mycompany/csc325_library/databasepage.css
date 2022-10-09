@@ -5,7 +5,7 @@
 {
     -fx-font-weight: bold;
     -fx-font-size: 16;
-    -fx-background-color: #E11584;
+    -fx-background-color: #ff6600;
     -fx-background-radius: 22;
     -fx-background-size: 16;
     -fx-text-fill: white;
@@ -17,8 +17,8 @@
     -fx-background-color: white;
     -fx-background-radius: 22;
     -fx-background-size: 16;
-    -fx-text-fill: #E11584;
-    -fx-border-color: #E11584;
+    -fx-text-fill: #ff6600;
+    -fx-border-color: #ff6600;
     -fx-border-radius: 20;
     -fx-border-width: 3;
 }
@@ -29,8 +29,8 @@
     -fx-background-color: white;
     -fx-background-radius: 22;
     -fx-background-size: 16;
-    -fx-text-fill: #E11584;
-    -fx-border-color: #E11584;
+    -fx-text-fill: #ff6600;
+    -fx-border-color: #ff6600;
     -fx-border-radius: 20;
     -fx-border-width: 3;
     -fx-rotate: 10;

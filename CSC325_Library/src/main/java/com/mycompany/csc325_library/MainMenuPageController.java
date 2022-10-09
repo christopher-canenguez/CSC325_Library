@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.csc325_library;
 
 import java.io.IOException;
@@ -19,12 +15,13 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author chriscanenguez
+ * @author Chris Canenguez
  */
 public class MainMenuPageController implements Initializable {
 
     private Parent root1;
     private Parent root2;
+    private Parent root3;
     
     @FXML
     public Button logoutButton;
@@ -53,7 +50,7 @@ public class MainMenuPageController implements Initializable {
     } // End goToCheckoutButton.
 
     @FXML
-    public void goToAccountInfo() throws IOException {
+    public void goToAccountInfoButton() throws IOException {
          // Retrieves Loader for AccountInfo page.
         FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
         root2 = accountLoader.load();
@@ -62,7 +59,19 @@ public class MainMenuPageController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(new Scene(root2));
         stage.show();
-    } // End goToAccountInfo.
+    } // End goToAccountInfoButton.
+    
+    @FXML
+    public void goToDatabaseButton() throws IOException {
+         // Retrieves Loader for Database page.
+        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
+        root3 = databaseLoader.load();
+
+        // Creates and loads scene.
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root3));
+        stage.show();
+    } // End goToDatabaseButton.
 
     @FXML
     public void logoutButton(ActionEvent event) {
