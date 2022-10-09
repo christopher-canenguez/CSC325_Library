@@ -42,7 +42,7 @@
                   <Font name="Tahoma Bold" size="13.0" />
                </font>
             </TextField>
-            <Button fx:id="loginButton" layoutX="420.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Checkout">
+            <Button layoutX="420.0" layoutY="330.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Checkout">
                <font>
                   <Font size="16.0" />
                </font>
@@ -52,6 +52,11 @@
                   <Font name="Tahoma Bold" size="24.0" />
                </font>
             </Label>
+            <Button fx:id="exitButton" layoutX="280.0" layoutY="330.0" mnemonicParsing="false" onAction="#exitButtonEvent" prefHeight="44.0" prefWidth="105.0" style="-fx-font-family: &quot;Tahoma&quot;;" stylesheets="@bookcheckoutpage.css" text="Exit">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

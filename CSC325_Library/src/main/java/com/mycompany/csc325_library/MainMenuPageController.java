@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package com.mycompany.csc325_library;
 
 import java.io.IOException;
@@ -19,7 +15,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author chriscanenguez
+ * @author Chris Canenguez
  */
 public class MainMenuPageController implements Initializable {
 
