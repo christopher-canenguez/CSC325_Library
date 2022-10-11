@@ -17,9 +17,7 @@ public class Library {
     
     public void Library(){
         
-       Person person1 = new Person(" "," "," "); 
        Book[] bookList = new Book[10];
-       Book1("hi","hi","123","hi",person1);
        Book Book1 = bookList[0];
        Book Book2 = bookList[1];
        Book Book3 = bookList[2];
@@ -31,6 +29,13 @@ public class Library {
        Book Book9 = bookList[8];
        Book Book10 = bookList[9];
        
+       User[] userList = new User[4];
+       User user1 = userList[0];
+       User user2 = userList[1];
+       User user3 = userList[2];
+       User user4 = userList[3];
+       User user5 = userList[4];
+
        
        
        
