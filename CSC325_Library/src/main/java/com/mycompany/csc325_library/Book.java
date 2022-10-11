@@ -19,14 +19,14 @@ public class Book {
      * instance variables
      */
     private String title;
-    private String author;
+    private Person author;
     private int isbn;
     private String status;
     private Person holder; //person who has book taken out, should be user when user is created 
 
     
 
-    public Book(String bookTitle, String bookAuthor, int bookISBN, String bookStatus, Person bookHolder) {
+    public Book(String bookTitle, Person bookAuthor, int bookISBN, String bookStatus, User bookHolder) {
         title = bookTitle;
         author = bookAuthor;
         isbn = bookISBN;
