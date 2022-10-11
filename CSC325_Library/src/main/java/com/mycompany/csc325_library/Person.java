@@ -25,17 +25,13 @@ public class Person {
      *stores the parameters into the appropriate instance variables
      * @param firtName
      * @param lastName
-     * @param personID
      */
-    public void setPersonID(String personID) {
-        this.personID = personID;
-    }
+  
 
 
-    public Person(String fName, String lName, String id) {
+    public Person(String fName, String lName) {
         firstName = fName;
         lastName = lName;
-        personID = id;
     }
     
     
@@ -43,10 +39,7 @@ public class Person {
      *Getter and setters for person attributes
      * @return
      */
-    public String getFirstName(){
-        return firstName;
-    
-    }
+ 
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
