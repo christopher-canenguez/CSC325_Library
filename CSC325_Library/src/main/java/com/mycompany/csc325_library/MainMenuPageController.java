@@ -37,6 +37,10 @@ public class MainMenuPageController implements Initializable {
         // TODO
     } // End initialize.
 
+    /**
+     * Method that transfers user from main menu to checkout page.
+     * @throws IOException 
+     */
     @FXML
     public void goToCheckoutButton() throws IOException {
         // Retrieves Loader for BookCheckout page.
@@ -49,6 +53,10 @@ public class MainMenuPageController implements Initializable {
         stage.show();
     } // End goToCheckoutButton.
 
+    /**
+     * Method that transfers user from main menu to account info page.
+     * @throws IOException 
+     */
     @FXML
     public void goToAccountInfoButton() throws IOException {
          // Retrieves Loader for AccountInfo page.
@@ -61,6 +69,10 @@ public class MainMenuPageController implements Initializable {
         stage.show();
     } // End goToAccountInfoButton.
     
+    /**
+     * Method that transfers user from main menu to database page.
+     * @throws IOException 
+     */
     @FXML
     public void goToDatabaseButton() throws IOException {
          // Retrieves Loader for Database page.
@@ -73,6 +85,9 @@ public class MainMenuPageController implements Initializable {
         stage.show();
     } // End goToDatabaseButton.
 
+    /**
+     * Method that transfers user from main menu back to login page and ends user session. 
+     */
     @FXML
     public void logoutButton(ActionEvent event) {
         // Gets current scene when button is clicked then closes window.
