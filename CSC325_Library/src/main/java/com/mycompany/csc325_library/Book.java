@@ -22,7 +22,7 @@ public class Book {
     private Person author;
     private int isbn;
     private String status;
-    private Person holder; //person who has book taken out, should be user when user is created 
+    private User holder; //person who has book taken out, should be user when user is created 
 
     
 
@@ -75,7 +75,7 @@ public class Book {
      * @param holder
      */
     
-    public void setHolder(Person holder) {
+    public void setHolder(User holder) {
         this.holder = holder;
     }
     
