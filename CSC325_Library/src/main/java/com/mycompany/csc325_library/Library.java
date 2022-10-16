@@ -17,18 +17,8 @@ public class Library {
    
     
     public void Library(){
-        
-       Book[] bookList = new Book[10];
-       Book Book1 = bookList[0];
-       Book Book2 = bookList[1];
-       Book Book3 = bookList[2];
-       Book Book4 = bookList[3];
-       Book Book5 = bookList[4];
-       Book Book6 = bookList[5];
-       Book Book7 = bookList[6];
-       Book Book8 = bookList[7];
-       Book Book9 = bookList[8];
-       Book Book10 = bookList[9];
+       
+       Person author1 = new Person("S.E", "Hinton");
        
        User[] userList = new User[4];
        User user1 = userList[0];
@@ -36,6 +26,23 @@ public class Library {
        User user3 = userList[2];
        User user4 = userList[3];
        User user5 = userList[4];
+ 
+       Book[] bookList = new Book[10];
+       
+       Book book1 = new Book("The Outsiders", author1, 3, "Not Available", user1);
+    
+       book1 = bookList[0];
+       Book book2 = bookList[1];
+       Book book3 = bookList[2];
+       Book book4 = bookList[3];
+       Book book5 = bookList[4];
+       Book book6 = bookList[5];
+       Book book7 = bookList[6];
+       Book book8 = bookList[7];
+       Book book9 = bookList[8];
+       Book book10 = bookList[9];
+       
+       
 
        
        
