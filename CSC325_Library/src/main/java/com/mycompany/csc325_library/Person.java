@@ -18,7 +18,7 @@ public class Person {
     
     private String firstName;
     private String lastName;
-    private String personID;
+   
 
     /**
      *Parameterized Constructor:
@@ -53,10 +53,6 @@ public class Person {
         this.lastName = lastName;
     }
 
-    public String getPersonID() {
-        return personID;
-    }
-    
     
     /**
      *ToString method
@@ -64,7 +60,7 @@ public class Person {
  
    @Override
     public String toString() {
-        String personInfo = "Person Information - " + "firstName: " + firstName + ", lastName: " + lastName + ", personID: " + personID;
+        String personInfo = "Person Information - " + "firstName: " + firstName + ", lastName: " + lastName + " ";
         return personInfo;
     }
     
