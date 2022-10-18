@@ -24,7 +24,8 @@ import javafx.stage.Stage;
  *
  * @author Chris Canenguez
  */
-public class MainMenuPageController implements Initializable {
+public class MainMenuPageController implements Initializable 
+{
 
     private Parent root1;
     private Parent root2;
@@ -40,11 +41,14 @@ public class MainMenuPageController implements Initializable {
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        try {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        try 
+        {
             // TODO
             openJDBC();
-        } catch (SQLException ex) {
+        } catch (SQLException ex) 
+        {
             Logger.getLogger(MainMenuPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     } // End initialize.
@@ -55,7 +59,8 @@ public class MainMenuPageController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void goToCheckoutButton() throws IOException {
+    public void goToCheckoutButton() throws IOException 
+    {
         // Retrieves Loader for BookCheckout page.
         FXMLLoader checkoutLoader = new FXMLLoader(getClass().getResource("BookCheckoutPage.fxml"));
         root1 = checkoutLoader.load();
@@ -72,7 +77,8 @@ public class MainMenuPageController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void goToAccountInfoButton() throws IOException {
+    public void goToAccountInfoButton() throws IOException 
+    {
         // Retrieves Loader for AccountInfo page.
         FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
         root2 = accountLoader.load();
@@ -89,7 +95,8 @@ public class MainMenuPageController implements Initializable {
      * @throws IOException
      */
     @FXML
-    public void goToDatabaseButton() throws IOException {
+    public void goToDatabaseButton() throws IOException 
+    {
         // Retrieves Loader for Database page.
         FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
         root3 = databaseLoader.load();
@@ -107,16 +114,23 @@ public class MainMenuPageController implements Initializable {
      * @param event
      */
     @FXML
-    public void logoutButton(ActionEvent event) {
+    public void logoutButton(ActionEvent event) 
+    {
         // Gets current scene when button is clicked then closes window.
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         stage.close();
     } // End logoutButton.
 
-    public void openJDBC() throws SQLException {
+    /**
+     * openJDBC - method that creates a connection from project to database file.
+     * @throws SQLException 
+     */
+    public void openJDBC() throws SQLException 
+    {
         String databaseURL = "";
         Connection conn = null;
 
+        // Name of file.
         databaseURL = "jdbc:ucanaccess://.//Books.accdb";
         conn = DriverManager.getConnection(databaseURL);
 
@@ -125,14 +139,14 @@ public class MainMenuPageController implements Initializable {
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery("select * from " + tableName);
 
-        while (result.next()) {
+        while (result.next()) 
+        {
             int isbn = result.getInt("Isbn");
             String title = result.getString("Title");
             String author = result.getString("Author");
             String status = result.getString("Status");
             String person = result.getString("Person");
             System.out.printf("%d, %s, %s, %s, %s\n", isbn, title, author, status, person);
-        }
-    }
-
+        } // End while.
+    } // End openJDBC.
 } // End MainMenuPageController.
