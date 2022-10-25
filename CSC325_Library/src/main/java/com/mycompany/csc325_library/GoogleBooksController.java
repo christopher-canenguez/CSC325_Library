@@ -15,9 +15,9 @@ import java.net.URL;
  */
 public class GoogleBooksController extends HttpController{
     
-    public void fullSearch(GBSearchParameter[] params)
+    public void search(GBSearchObject searchObject)
     {
-        String query = createSearchParameters(params);
+        String query = createSearchParameters(searchObject.data);
         try
         {
            var result = getHTML("https://www.googleapis.com/books/v1/volumes"+query); 
@@ -28,7 +28,6 @@ public class GoogleBooksController extends HttpController{
             System.out.println(e);
         }
     }
-    
     
     public static String createSearchParameters(GBSearchParameter[] params)
     {
