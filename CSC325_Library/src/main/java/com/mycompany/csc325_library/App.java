@@ -37,13 +37,14 @@ public class App extends Application {
 
     public static void main(String[] args) {
         System.out.println("Hello CSC325!");
-        //testSearchParameter();
+        testSearchParameter();
+        launch();
     }
     
     public static void testSearchParameter()
     {
         GoogleBooksController gbc = new GoogleBooksController();
         gbc.fullSearch(new GBSearchParameter[]{new GBSearchParameter( GBSearchParameterType.intitle,"Harry Potter")});
-        launch();
+        
     }
 }
