@@ -18,7 +18,7 @@ public class Library {
     
     public void Library(){
        
-        //authors
+        //authorss
        Person author1 = new Person("S.E Hinton");
        Person author2 = new Person("J.K Rowling");
        Person author3 = new Person("William Shakespear");
