@@ -26,20 +26,20 @@ public class Library {
        Person author5 = new Person ("Miguel de Cervantes");
        Person author6 = new Person ("Harper Lee");
        
-      /** users list and populating array
+      // users list and populating array
        User[] userList = new User[4];
-       User user1 = new User("Sam", "Hindy", 111);
+       User user1 = new User("Sam Hindy",231);
        user1 = userList[0];
-       User user2 = new User("Kelly", "Lane", 222);
+       User user2 = new User("Kelly Lane", 222);
        user2 = userList[1];
-       User user3 = new User("Christopher", "Canenguez", 333);
+       User user3 = new User("Christopher Canenguez", 333);
        user3 = userList[2];
-       User user4 = new User("Shameed","Jobb", 444); 
+       User user4 = new User("Shameed Jobb", 444); 
        user4 = userList[3];
        
-       User user5 = new User("Kulsom", "Zaraei", 555);
+       User user5 = new User("Kulsom Zaraei", 555);
        user5 = userList[4];
- */
+
        //books list
        Book[] bookList = new Book[10];
        Book book1 = new Book("The Outsiders", author1, 123455, "Not Available");
