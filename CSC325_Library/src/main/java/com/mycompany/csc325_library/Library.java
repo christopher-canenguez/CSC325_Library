@@ -19,12 +19,12 @@ public class Library {
     public void Library(){
        
         //authors
-       Person author1 = new Person("S.E", "Hinton");
-       Person author2 = new Person("J.K", "Rowling");
-       Person author3 = new Person("William", "Shakespear");
-       Person author4 = new Person("Herman", "Melville");
-       Person author5 = new Person ("Miguel","de Cervantes");
-       Person author6 = new Person ("Harper", "Lee");
+       Person author1 = new Person("S.E Hinton");
+       Person author2 = new Person("J.K Rowling");
+       Person author3 = new Person("William Shakespear");
+       Person author4 = new Person("Herman Melville");
+       Person author5 = new Person ("Miguel de Cervantes");
+       Person author6 = new Person ("Harper Lee");
        
       /** users list and populating array
        User[] userList = new User[4];
