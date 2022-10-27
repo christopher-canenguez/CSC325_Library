@@ -22,16 +22,16 @@ public class Book {
     private Person author;
     private int isbn;
     private String status;
-    private User holder; //person who has book taken out, should be user when user is created 
+  //  private User holder; 
 
     
 
-    public Book(String bookTitle, Person bookAuthor, int bookISBN, String bookStatus, User bookHolder) {
+    public Book(String bookTitle, Person bookAuthor, int bookISBN, String bookStatus) {
         title = bookTitle;
         author = bookAuthor;
         isbn = bookISBN;
         status = bookStatus;
-        holder = bookHolder;
+        //holder = bookHolder;
     }
      public String getTitle() {    
         return title;
@@ -65,7 +65,7 @@ public class Book {
     public void setStatus(String status) {
         this.status = status;
     }
-
+/*
     public Person getHolder() {
         return holder;
     }
@@ -73,16 +73,16 @@ public class Book {
     /**
      * constructor for book
      * @param holder
-     */
+    
     
     public void setHolder(User holder) {
         this.holder = holder;
     }
     
-    
+     */
     @Override
     public String toString() {
-       String bookInfo =  "Book Information - " +  "title: " + title + ", author: " + author + ", isbn: " + isbn + ", status: " + status + ", holder: " + holder;
+       String bookInfo =  "Book Information - " +  "title: " + title + ", author: " + author + ", isbn: " + isbn + ", status: " + status + ", holder: ";
         return bookInfo;
     }
 
