@@ -30,6 +30,8 @@ public class MainMenuPageController implements Initializable
     private Parent root1;
     private Parent root2;
     private Parent root3;
+    
+    public Book[] books = new Book[10]; // Book Array.
 
     @FXML
     public Button logoutButton;
@@ -139,14 +141,28 @@ public class MainMenuPageController implements Initializable
         Statement stmt = conn.createStatement();
         ResultSet result = stmt.executeQuery("select * from " + tableName);
 
+        int i = 0;
+        
         while (result.next()) 
-        {
+        {   
             int isbn = result.getInt("Isbn");
             String title = result.getString("Title");
             String author = result.getString("Author");
             String status = result.getString("Status");
             String person = result.getString("Person");
-            System.out.printf("%d, %s, %s, %s, %s\n", isbn, title, author, status, person);
+            //System.out.printf("%d, %s, %s, %s, %s\n", isbn, title, author, status, person);
+            books[i] = new Book(title, new Person(author), isbn, status);
+            i++;
         } // End while.
+        
+        // Test if array is populated.
+        for (int j = 0; j < books.length; j++)
+        {
+            Book currBook = books[j];
+            
+            if (currBook != null)
+                System.out.println(currBook.toString());
+        } // End for.
+        
     } // End openJDBC.
 } // End MainMenuPageController.
