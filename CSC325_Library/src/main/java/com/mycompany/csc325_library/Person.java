@@ -16,22 +16,19 @@ public class Person {
      Instance Variables:
      */
     
-    private String firstName;
-    private String lastName;
+    private String name;
    
 
     /**
      *Parameterized Constructor:
      *stores the parameters into the appropriate instance variables
-     * @param firtName
-     * @param lastName
+     * @param name
      */
   
 
 
-    public Person(String fName, String lName) {
-        firstName = fName;
-        lastName = lName;
+    public Person(String name1) {
+        name = name1;
     }
     
     
@@ -41,17 +38,14 @@ public class Person {
      */
  
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getname() {
+        return name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     
     /**
@@ -60,7 +54,7 @@ public class Person {
  
    @Override
     public String toString() {
-        String personInfo = "Person Information - " + "firstName: " + firstName + ", lastName: " + lastName + " ";
+        String personInfo = "Person Information - " + "Name: " + name;
         return personInfo;
     }
     
