@@ -8,43 +8,45 @@ package com.mycompany.csc325_library;
  *
  * @author user
  */
-public class User extends Person {
-//    private Book[] userCheckedOutBooks = new Book[4];
+public class User extends Person 
+{
+    // private Book[] userCheckedOutBooks = new Book[4];
+
     public String id;
-   
-    
-    public User(String name, int id) {
-    super(name);
-   // this.userCheckedOutBooks = null;
-    this.id = "0";
-    }
 
-    
-      public String getId() {
+    public User(String name, int id) 
+    {
+        super(name);
+        // this.userCheckedOutBooks = null;
+        this.id = "0";
+    } // End User.
+
+    public String getId()
+    {
         return id;
-    }
+    } // End getId.
 
-    public void setId(String id) {
+    public void setId(String id) 
+    {
         this.id = id;
-    }
-    
-    public void setName(String name){
-    this.name = name;
-    }
-    
-    
-//    public Book[] getUserCheckedOutBooks() {
-  //      return userCheckedOutBooks;
-  //  }
+    } // End setId.
 
- //   public void setUserCheckedOutBooks(Book[] userCheckedOutBooks) {
- //       this.userCheckedOutBooks = userCheckedOutBooks;
- //  }
-   
-      @Override
-    public String toString() {
+    //public void setName(String name) 
+    //{
+    //    this.name = name;
+    //} // End setName.
+
+    //public Book[] getUserCheckedOutBooks() {
+    //      return userCheckedOutBooks;
+    //  }
+    //   public void setUserCheckedOutBooks(Book[] userCheckedOutBooks) {
+    //       this.userCheckedOutBooks = userCheckedOutBooks;
+    //  }
+    @Override
+    public String toString() 
+    {
         String myUser;
-        myUser = "Name: " + name + "ID:" + id;
+        myUser = "Name: " + this.getName() + "ID:" + id;
         return myUser;
-    }
-}
+    } // End toString.
+} // End User.
