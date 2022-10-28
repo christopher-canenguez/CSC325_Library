@@ -33,10 +33,9 @@
             <TableView layoutX="48.0" layoutY="96.0" prefHeight="229.0" prefWidth="495.0">
                <columns>
                   <TableColumn prefWidth="124.0" text="ISBN" />
-                  <TableColumn prefWidth="127.0" text="Book Title" />
-                  <TableColumn prefWidth="71.0" text="Author" />
-                  <TableColumn prefWidth="67.0" text="Genre" />
-                  <TableColumn prefWidth="105.0" text="Availability" />
+                  <TableColumn prefWidth="185.0" text="Book Title" />
+                  <TableColumn prefWidth="89.0" text="Author" />
+                  <TableColumn prefWidth="96.0" text="Availability" />
                </columns>
             </TableView>
             <ScrollBar layoutX="543.0" layoutY="96.0" orientation="VERTICAL" prefHeight="229.0" prefWidth="16.0" />

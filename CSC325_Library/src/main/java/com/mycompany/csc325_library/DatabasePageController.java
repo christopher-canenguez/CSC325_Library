@@ -6,6 +6,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 /**
@@ -15,6 +17,13 @@ import javafx.stage.Stage;
  */
 public class DatabasePageController implements Initializable {
 
+    //Configure the tableView
+    @FXML private TableView<Book> tableView;
+    @FXML private TableColumn<Book, Integer> isbnColumn;
+    @FXML private TableColumn<Book, String> titleColumn;
+    @FXML private TableColumn<Book, String> authorColumn;
+    @FXML private TableColumn<Book, String> availabilityColumn;
+    
     @FXML
     public Button exitButton;
     

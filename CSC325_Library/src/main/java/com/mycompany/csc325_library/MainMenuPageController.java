@@ -165,4 +165,17 @@ public class MainMenuPageController implements Initializable
         } // End for.
         
     } // End openJDBC.
+    
+    @FXML
+    private void sendToDatabaseSearch(ActionEvent event) throws IOException
+    {
+        // Load database paage and get instance of controller.
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
+        Parent root = loader.load();
+        
+        // Get controller of database page.
+        DatabasePageController databaseController = loader.getController();
+        
+        //
+    }
 } // End MainMenuPageController.
