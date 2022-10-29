@@ -48,7 +48,8 @@ public class Person {
     @Override
     public String toString() 
     {
-        String personInfo = "Person Information - " + "Name: " + name;
+        //String personInfo = "Person Information - " + "Name: " + name;
+        String personInfo = name;
         return personInfo;
     } // End toString.
 } // End Person.

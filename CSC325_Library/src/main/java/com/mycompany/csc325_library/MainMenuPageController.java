@@ -107,6 +107,12 @@ public class MainMenuPageController implements Initializable
         Stage stage = new Stage();
         stage.setScene(new Scene(root3));
         stage.show();
+        
+        // Get controller of database page.
+        DatabasePageController databaseController = databaseLoader.getController();
+        
+        // Transfer books array to databasePageController.
+        databaseController.setTableView(books);
     } // End goToDatabaseButton.
 
     /**
@@ -154,7 +160,7 @@ public class MainMenuPageController implements Initializable
             books[i] = new Book(title, new Person(author), isbn, status);
             i++;
         } // End while.
-        
+
         // Test if array is populated.
         for (int j = 0; j < books.length; j++)
         {
@@ -165,17 +171,5 @@ public class MainMenuPageController implements Initializable
         } // End for.
         
     } // End openJDBC.
-    
-    @FXML
-    private void sendToDatabaseSearch(ActionEvent event) throws IOException
-    {
-        // Load database paage and get instance of controller.
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
-        Parent root = loader.load();
-        
-        // Get controller of database page.
-        DatabasePageController databaseController = loader.getController();
-        
-        //
-    }
+
 } // End MainMenuPageController.
