@@ -13,8 +13,9 @@ public class User extends Person
     // private Book[] userCheckedOutBooks = new Book[4];
 
     public String id;
+    //public String pin;
 
-    public User(String name, int id) 
+    public User(String name, String id) 
     {
         super(name);
         // this.userCheckedOutBooks = null;
