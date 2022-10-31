@@ -12,22 +12,22 @@ public class User extends Person
 {
     // private Book[] userCheckedOutBooks = new Book[4];
 
-    public String id;
+    public int id;
     //public String pin;
 
-    public User(String name, String id) 
+    public User(String name, int id) 
     {
         super(name);
         // this.userCheckedOutBooks = null;
-        this.id = "0";
+        this.id = 0;
     } // End User.
 
-    public String getId()
+    public int getId()
     {
         return id;
     } // End getId.
 
-    public void setId(String id) 
+    public void setId(int id) 
     {
         this.id = id;
     } // End setId.
