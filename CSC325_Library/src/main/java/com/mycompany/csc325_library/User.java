@@ -63,4 +63,23 @@ public class User extends Person
         myUser = "Name: " + this.getName() + "ID:" + id;
         return myUser;
     } // End toString.
+
+    
+    /**
+     * search - will search through array of Accounts if an account with id exists.
+     * @param Bank - Array of accounts.
+     * @param id - id
+     * @return - account with id, if not, null.
+     */
+    public static User search(User[] userList, int accountNum)
+    {
+        for (int i = 0; i < userList.length; i++)
+        {
+            if (userList[i].getId() == accountNum)
+            {
+                return userList[i];
+            } // End if.
+        } // End for.
+        return null;
+    } // End search.
 } // End User.

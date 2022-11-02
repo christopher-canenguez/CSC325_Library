@@ -27,6 +27,7 @@ public class LoginPageController implements Initializable {
 
     private Parent root;
     public User[] userList;
+    private User currentUser;
     
     @FXML public Button exitButton;
     
@@ -45,7 +46,7 @@ public class LoginPageController implements Initializable {
     {
         // TODO
         // users list and populating array
-        userList = new User[4];
+        userList = new User[5];
         User user1 = new User("Sam Hindy", 231, 231);
         user1 = userList[0];
         User user2 = new User("Kelly Lane", 222, 222);
@@ -54,7 +55,6 @@ public class LoginPageController implements Initializable {
         user3 = userList[2];
         User user4 = new User("Shameed Jobb", 444, 444);
         user4 = userList[3];
-
         User user5 = new User("Kulsom Zaraei", 555, 555);
         user5 = userList[4];
     } // End initialize.
@@ -65,6 +65,15 @@ public class LoginPageController implements Initializable {
         // Gets loader for MainMenu page.
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
         root = loginLoader.load();
+        
+        // Get data from text fields.
+        int acctNum = Integer.valueOf(accountNumTextField.getText());
+        
+        String pinNum = pinCodeTextField.getText();
+        
+        // Based on the account Number that is entered into the text field,
+        // Retrieve the designated account based on the string entered.
+        currentUser = User.search(userList, acctNum);
 
         // Sets stage and opens window.
         Stage stage = new Stage();
