@@ -13,14 +13,27 @@ public class User extends Person
     // private Book[] userCheckedOutBooks = new Book[4];
 
     public int id;
+    public int pinCode;
     //public String pin;
 
-    public User(String name, int id) 
+    public User(String name, int id, int pin) 
     {
         super(name);
         // this.userCheckedOutBooks = null;
         this.id = 0;
+        this.pinCode = pin;
+        
     } // End User.
+
+    public int getPinCode() 
+    {
+        return pinCode;
+    }
+
+    public void setPinCode(int pinCode) 
+    {
+        this.pinCode = pinCode;
+    }
 
     public int getId()
     {
