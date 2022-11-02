@@ -14,6 +14,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
@@ -24,9 +26,15 @@ import javafx.stage.Stage;
 public class LoginPageController implements Initializable {
 
     private Parent root;
+    public User[] userList;
     
-    @FXML
-    public Button exitButton;
+    @FXML public Button exitButton;
+    
+    @FXML TextField accountNumTextField;
+    @FXML TextField pinCodeTextField;
+    
+    @FXML Label wrongPinLabel;
+    
     /**
      * Initializes the controller class.
      * @param url
@@ -36,6 +44,19 @@ public class LoginPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         // TODO
+        // users list and populating array
+        userList = new User[4];
+        User user1 = new User("Sam Hindy", 231, 231);
+        user1 = userList[0];
+        User user2 = new User("Kelly Lane", 222, 222);
+        user2 = userList[1];
+        User user3 = new User("Christopher Canenguez", 333, 333);
+        user3 = userList[2];
+        User user4 = new User("Shameed Jobb", 444, 444);
+        user4 = userList[3];
+
+        User user5 = new User("Kulsom Zaraei", 555, 555);
+        user5 = userList[4];
     } // End initialize.
     
     @FXML

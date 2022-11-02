@@ -29,11 +29,11 @@
             <Font name="Tahoma Bold" size="26.0" />
          </font>
       </Label>
-      <TextField focusTraversable="false" layoutX="341.0" layoutY="157.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Number" style="-fx-border-color: #9400d3 #9400d3; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+      <TextField fx:id="accountNumTextField" focusTraversable="false" layoutX="341.0" layoutY="157.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Number" style="-fx-border-color: #9400d3 #9400d3; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font></TextField>
-      <TextField focusTraversable="false" layoutX="341.0" layoutY="215.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="4-Digit Pin" style="-fx-border-color: #9400d3 #9400d3; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;" stylesheets="@loginpage.css">
+      <TextField fx:id="pinCodeTextField" focusTraversable="false" layoutX="341.0" layoutY="215.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="4-Digit Pin" style="-fx-border-color: #9400d3 #9400d3; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;" stylesheets="@loginpage.css">
          <font>
             <Font name="Tahoma Bold" size="13.0" />
          </font></TextField>
