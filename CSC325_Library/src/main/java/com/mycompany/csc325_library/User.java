@@ -20,7 +20,7 @@ public class User extends Person
     {
         super(name);
         // this.userCheckedOutBooks = null;
-        this.id = 0;
+        this.id = id;
         this.pinCode = pin;
         
     } // End User.
@@ -28,12 +28,12 @@ public class User extends Person
     public int getPinCode() 
     {
         return pinCode;
-    }
+    } // End getPinCode.
 
     public void setPinCode(int pinCode) 
     {
         this.pinCode = pinCode;
-    }
+    } // End setPinCode.
 
     public int getId()
     {
@@ -66,10 +66,10 @@ public class User extends Person
 
     
     /**
-     * search - will search through array of Accounts if an account with id exists.
-     * @param Bank - Array of accounts.
-     * @param id - id
-     * @return - account with id, if not, null.
+     * search - will search through array of Users if User with id exists.
+     * @param userList
+     * @param accountNum
+     * @return 
      */
     public static User search(User[] userList, int accountNum)
     {
