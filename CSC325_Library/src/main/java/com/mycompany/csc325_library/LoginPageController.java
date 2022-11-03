@@ -46,16 +46,11 @@ public class LoginPageController implements Initializable {
     {
         // users list and populating array
         userList = new User[5];
-        User user1 = new User("Sam Hindy", 231, 231);
-        userList[0] = user1;
-        User user2 = new User("Kelly Lane", 222, 222);
-        userList[1] = user2;
-        User user3 = new User("Christopher Canenguez", 333, 333);
-        userList[2] = user3;
-        User user4 = new User("Shameed Jobb", 444, 444);
-        userList[3] = user4;
-        User user5 = new User("Kulsom Zaraei", 555, 555);
-        userList[4] = user5;
+        userList[0] = new User("Sam Hindy", 231, 231);
+        userList[1] = new User("Kelly Lane", 222, 222);
+        userList[2] = new User("Christopher Canenguez", 333, 333);
+        userList[3] = new User("Shameed Jobb", 444, 444);;
+        userList[4] = new User("Kulsom Zaraei", 555, 555);
     } // End initialize.
     
     @FXML
@@ -82,8 +77,7 @@ public class LoginPageController implements Initializable {
             wrongPinLabel.setText("The account number you entered doesn't exist. Please enter a valid account number.");
             wrongPinLabel.setVisible(true);
             
-            accountNumTextField.clear(); // Reset field.
-            pinCodeTextField.clear(); // Reset field.
+            clearTextFields(); // Reset fields.
         } // End if.
         else if(!(currentUser.getPinCode() == pinNum))
         {
@@ -91,8 +85,7 @@ public class LoginPageController implements Initializable {
             wrongPinLabel.setText("The pin code is wrong for this account. Please enter again.");
             wrongPinLabel.setVisible(true);
             
-            accountNumTextField.clear(); // Rest field.
-            pinCodeTextField.clear(); // Reset field.
+            clearTextFields(); // Reset fields.
         } // End if.
         else
         {
@@ -101,8 +94,7 @@ public class LoginPageController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             
-            accountNumTextField.clear(); // Reset field.
-            pinCodeTextField.clear(); // Reset field.
+            clearTextFields(); // Reset fields.
             wrongPinLabel.setVisible(false); // Turn off error when valid login entered.
         } // End else.
 
@@ -115,4 +107,10 @@ public class LoginPageController implements Initializable {
         stage.close();
     } // End exitButtonEvent.
     
+    @FXML
+    private void clearTextFields()
+    {
+        accountNumTextField.clear(); // Reset field.
+        pinCodeTextField.clear(); // Reset field.
+    } // end  clearTextFields.
 } // End LoginPageController.
