@@ -94,6 +94,12 @@ public class LoginPageController implements Initializable {
             stage.setScene(new Scene(root));
             stage.show();
             
+            // Get mainMenu controller.
+            MainMenuPageController mainMenuPageController = loginLoader.getController();
+            
+            // Update name.
+            mainMenuPageController.updateName(currentUser.getName());
+            
             clearTextFields(); // Reset fields.
             wrongPinLabel.setVisible(false); // Turn off error when valid login entered.
         } // End else.

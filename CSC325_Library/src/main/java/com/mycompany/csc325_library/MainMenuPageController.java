@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -33,8 +34,8 @@ public class MainMenuPageController implements Initializable
     
     public Book[] books = new Book[10]; // Book Array.
 
-    @FXML
-    public Button logoutButton;
+    @FXML public Button logoutButton;
+    @FXML Label nameLabel;
 
     /**
      * Initializes the controller class.
@@ -171,5 +172,15 @@ public class MainMenuPageController implements Initializable
         } // End for.
         
     } // End openJDBC.
+    
+    /**
+     * method used to update the name label to that of the current user that is using system.
+     * @param userName 
+     */
+    @FXML
+    public void updateName(String userName)
+    {
+        nameLabel.setText(userName + "!");
+    } // End updateNum.
 
 } // End MainMenuPageController.
