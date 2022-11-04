@@ -12,21 +12,35 @@ public class User extends Person
 {
     // private Book[] userCheckedOutBooks = new Book[4];
 
-    public String id;
+    public int id;
+    public int pinCode;
+    //public String pin;
 
-    public User(String name, int id) 
+    public User(String name, int id, int pin) 
     {
         super(name);
         // this.userCheckedOutBooks = null;
-        this.id = "0";
+        this.id = id;
+        this.pinCode = pin;
+        
     } // End User.
 
-    public String getId()
+    public int getPinCode() 
+    {
+        return pinCode;
+    } // End getPinCode.
+
+    public void setPinCode(int pinCode) 
+    {
+        this.pinCode = pinCode;
+    } // End setPinCode.
+
+    public int getId()
     {
         return id;
     } // End getId.
 
-    public void setId(String id) 
+    public void setId(int id) 
     {
         this.id = id;
     } // End setId.
@@ -49,4 +63,23 @@ public class User extends Person
         myUser = "Name: " + this.getName() + "ID:" + id;
         return myUser;
     } // End toString.
+
+    
+    /**
+     * search - will search through array of Users if User with id exists.
+     * @param userList
+     * @param accountNum
+     * @return 
+     */
+    public static User search(User[] userList, int accountNum)
+    {
+        for (int i = 0; i < userList.length; i++)
+        {
+            if (userList[i].getId() == accountNum)
+            {
+                return userList[i];
+            } // End if.
+        } // End for.
+        return null;
+    } // End search.
 } // End User.

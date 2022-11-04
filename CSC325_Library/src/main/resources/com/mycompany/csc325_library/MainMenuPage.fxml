@@ -15,7 +15,7 @@
    <children>
       <Pane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #29b6f6;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutX="33.0" layoutY="40.0" prefHeight="136.0" prefWidth="214.0" text="Welcome &quot;Name of Person&quot;!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label fx:id="nameLabel" alignment="CENTER" layoutX="33.0" layoutY="98.0" prefHeight="70.0" prefWidth="214.0" text="&quot;Name of Person&quot;!" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="26.0" />
                </font>
@@ -28,6 +28,11 @@
             <Label layoutX="39.0" layoutY="194.0" prefHeight="183.0" prefWidth="221.0" text="&quot;Not all those who wandar are lost&quot; - J.R.R Tolkien, The Lord of the Rings" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="23.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="58.0" layoutY="65.0" prefHeight="33.0" prefWidth="164.0" text="Welcome" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="26.0" />
                </font>
             </Label>
          </children>
