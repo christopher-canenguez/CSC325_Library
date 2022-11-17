@@ -2,6 +2,7 @@ package com.mycompany.csc325_library;
 
 //testing
 import com.mycompany.csc325_library.Book;
+import java.util.ArrayList;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,8 +14,9 @@ import com.mycompany.csc325_library.Book;
  */
 public class Library {
 
-    public void Library() 
-    {
+    private ArrayList<Book> bookList;
+
+    public void Library() {
 
         //authorss
         Person author1 = new Person("S.E Hinton");
@@ -38,9 +40,31 @@ public class Library {
         User user5 = new User("Kulsom Zaraei", 555, 555);
         user5 = userList[4];
 
+        Book book1 = new Book("The Outsiders", author1, 123455, "Not Available");
+        bookList.add(book1);
+        Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, 434566, "Not Available");
+        bookList.add(book2);
+        Book book3 = new Book("Hamlet", author3, 76859, "Available");
+        bookList.add(book3);
+
+        Book book4 = new Book("Romeo and Juliet", author3, 78899, "Available");
+        bookList.add(book4);
+        Book book5 = new Book("Redburn", author4, 75648, "Available");
+        bookList.add(book5);
+        Book book6 = new Book("Billy Budd", author4, 654322, "available");
+        bookList.add(book6);
+        Book book7 = new Book("Harry Potter and  the Chamber of Secrets", author2, 423432, "available");
+        bookList.add(book7);
+        Book book8 = new Book("Harry Potter and  the Prisioner of Askaban", author2, 42322, "available");
+        bookList.add(book8);
+        Book book9 = new Book("Don Quixote", author5, 123229, "Available");
+        bookList.add(book9);
+        Book book10 = new Book("To Kill a Mocking Bird", author6, 432543, "Available");
+        bookList.add(book10);
+        /*
         //books list
         Book[] bookList = new Book[10];
-        Book book1 = new Book("The Outsiders", author1, 123455, "Not Available");
+      
         book1 = bookList[0];
         Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, 434566, "Not Available");
         book2 = bookList[1];
@@ -60,6 +84,22 @@ public class Library {
         book9 = bookList[8];
         Book book10 = new Book("To Kill a Mocking Bird", author6, 432543, "Available");
         book10 = bookList[9];
+        
+        
+         */
 
-    } // End Library.
+
+        
+        
+    public String getStatus(String title) {
+        for (Book book : bookList) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book.getStatus();
+            }
+        }
+
+        // No book found
+        return null;
+    }
+
 } // End Library.
