@@ -18,17 +18,17 @@ public class Book
      */
     private String title;
     private Person author;
+    private User holder;
     private int isbn;
     private String status;
-    //  private User holder; 
 
-    public Book(String bookTitle, Person bookAuthor, int bookISBN, String bookStatus) 
+    public Book(String bookTitle, Person bookAuthor, User bookHolder,int bookISBN, String bookStatus) 
     {
         title = bookTitle;
         author = bookAuthor;
         isbn = bookISBN;
         status = bookStatus;
-        //holder = bookHolder;
+        holder = bookHolder;
     } // End Book.
 
     public String getTitle() 
@@ -71,25 +71,20 @@ public class Book
         this.status = status;
     } // End setStatus.
 
-    /*
+    
     public Person getHolder() {
         return holder;
     }
-
-    /**
-     * constructor for book
-     * @param holder
-    
     
     public void setHolder(User holder) {
         this.holder = holder;
     }
     
-     */
+   
     @Override
     public String toString() 
     {
-        String bookInfo = "Book Information - " + "title: " + title + ", author: " + author + ", isbn: " + isbn + ", status: " + status;
+        String bookInfo = "Book Information - " + "title: " + title + ", author: " + author + ", isbn: " + isbn + ", status: " + status + "Book Holder: " + holder;
         return bookInfo;
     } // End toString.
 } // End Book.
