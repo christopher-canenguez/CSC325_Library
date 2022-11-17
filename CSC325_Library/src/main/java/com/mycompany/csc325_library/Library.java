@@ -16,7 +16,7 @@ public class Library {
 
     private ArrayList<Book> bookList;
 
-    public void Library() {
+    public Library() {
 
         //authorss
         Person author1 = new Person("S.E Hinton");
@@ -61,7 +61,31 @@ public class Library {
         bookList.add(book9);
         Book book10 = new Book("To Kill a Mocking Bird", author6, 432543, "Available");
         bookList.add(book10);
-        /*
+    }
+           
+
+    public Book findBook(String title){
+        for (Book book : bookList) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book;
+            }
+        }
+
+        // No book found
+        return null;
+    }
+
+    private String getStatus(String title) {
+        for (Book book : bookList) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                return book.getStatus();
+            }
+        }
+
+        // No book found
+        return null;
+    }
+    /*
         //books list
         Book[] bookList = new Book[10];
       
@@ -86,20 +110,6 @@ public class Library {
         book10 = bookList[9];
         
         
-         */
-
-
-        
-        
-    public String getStatus(String title) {
-        for (Book book : bookList) {
-            if (book.getTitle().equalsIgnoreCase(title)) {
-                return book.getStatus();
-            }
-        }
-
-        // No book found
-        return null;
-    }
+     */
 
 } // End Library.
