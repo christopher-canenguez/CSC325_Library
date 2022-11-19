@@ -9,96 +9,95 @@ package com.mycompany.csc325_library;
  * @author shameedjob
  */
 public class APIBookResult {
-    String kind;
-    String id;
-    String etag;
-    String selfLink;
+    public String kind;
+    public String id;
+    public String etag;
+    public String selfLink;
     
-    VolumeInfo volumeInfo;
+    public VolumeInfo volumeInfo;
     
     public class VolumeInfo{
-        String title;
-        String subtitle;
-        String[] authors;
-        String publisher;
-        String publishedDate;
-        String description;
+        public String title;
+        public String subtitle;
+        public String[] authors;
+        public String publisher;
+        public String publishedDate;
+        public String description;
 
-        IndustryIdentifier[] industrtdentifiers;
-        ReadingMode readingModes;
+        public IndustryIdentifier[] industrtdentifiers;
+        public ReadingMode readingModes;
 
-        int pageCount;
-        String printType;
-        String[] categories;
-        String maturityRating;
-        boolean allowAnonLogging;
+        public int pageCount;
+        public String printType;
+        public String[] categories;
+        public String maturityRating;
+        public boolean allowAnonLogging;
         
-        String contentVersion;
-        PanelizationSummary panelizationSummary;
-        ImageLinks imageLinks;
-        String language;
-        String previewLink;
-        String infoLink;
-        String canonicalVolumeLink;
-        SaleInfo saleInfo;
-        AccessInfo accessInfo;
-        SearchInfo searchInfo;
+        public String contentVersion;
+        public PanelizationSummary panelizationSummary;
+        public ImageLinks imageLinks;
+        public String language;
+        public String previewLink;
+        public String infoLink;
+        public String canonicalVolumeLink;
+        public SaleInfo saleInfo;
+        public SearchInfo searchInfo;
         
         public class IndustryIdentifier{
-            String type;
-            String identifier;
+            public String type;
+            public String identifier;
         }
 
         public class ReadingMode{
-            boolean text;
-            boolean image;
+            public boolean text;
+            public boolean image;
         }
         
         public class PanelizationSummary{
-            boolean containsEpubBubbles;
-            boolean containsImageBubbles;
+            public boolean containsEpubBubbles;
+            public boolean containsImageBubbles;
         }
         
         public class ImageLinks{
-            String smallThumbnail;
-            String thumbnail;
+            public String smallThumbnail;
+            public String thumbnail;
         }
         
 
     }
     
     public class SaleInfo{
-        String country;
-        String saleability;
-        boolean isEbook;
+        public String country;
+        public String saleability;
+        public boolean isEbook;
     }
         
     public class AccessInfo
     {
-        String country;
-        String viewability;
-        boolean embeddable;
-        boolean publicDomain;
-        String textToSpeechPermission;
-        Epub epub;
-        Pdf pdf;
-        String webReaderLink;
-        String accessViewStatus;
-        boolean quoteSharingAllowed;
+        public String country;
+        public String viewability;
+        public boolean embeddable;
+        public boolean publicDomain;
+        public String textToSpeechPermission;
+        public Epub epub;
+        public Pdf pdf;
+        public String webReaderLink;
+        public String accessViewStatus;
+        public boolean quoteSharingAllowed;
         
         public class Epub{
-            boolean isAvailable;
+            public boolean isAvailable;
         }
         
         public class Pdf{
-            boolean isAvailable;
+            public boolean isAvailable;
         }
         
     }
     
     public class SearchInfo
     {
-        String textSnippet;
+        public String textSnippet;
     }
 }
 
