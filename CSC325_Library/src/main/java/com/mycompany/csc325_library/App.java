@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 /**
@@ -42,6 +41,21 @@ public class App extends Application
     public static void main(String[] args) 
     {
         System.out.println("Hello CSC325!");
+        testSearchParameter();
         launch();
-    } // End main.
-} // End App.
+    }
+//    
+    public static void testSearchParameter()
+    {
+       GoogleBooksController gbc = new GoogleBooksController();
+       var gbSearch = new GBSearchCompiler().addAuthorParameter("Rowling").addTitleParameter("Potter").compile();
+       APISearchResult search = gbc.search(gbSearch);
+       System.out.println(search.totalItems);
+        System.out.println(search.items.length);
+       for(var item: search.items)
+       {
+           System.out.println(item.volumeInfo.title);
+       }
+        
+    }
+}
