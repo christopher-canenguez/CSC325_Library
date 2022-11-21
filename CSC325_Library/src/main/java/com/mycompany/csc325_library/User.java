@@ -8,40 +8,34 @@ package com.mycompany.csc325_library;
  *
  * @author user
  */
-public class User extends Person 
-{
+public class User extends Person {
     // private Book[] userCheckedOutBooks = new Book[4];
 
     public int id;
     public int pinCode;
     //public String pin;
 
-    public User(String name, int id, int pin) 
-    {
+    public User(String name, int id, int pin) {
         super(name);
         // this.userCheckedOutBooks = null;
         this.id = id;
         this.pinCode = pin;
-        
+
     } // End User.
 
-    public int getPinCode() 
-    {
+    public int getPinCode() {
         return pinCode;
     } // End getPinCode.
 
-    public void setPinCode(int pinCode) 
-    {
+    public void setPinCode(int pinCode) {
         this.pinCode = pinCode;
     } // End setPinCode.
 
-    public int getId()
-    {
+    public int getId() {
         return id;
     } // End getId.
 
-    public void setId(int id) 
-    {
+    public void setId(int id) {
         this.id = id;
     } // End setId.
 
@@ -49,7 +43,6 @@ public class User extends Person
     //{
     //    this.name = name;
     //} // End setName.
-
     //public Book[] getUserCheckedOutBooks() {
     //      return userCheckedOutBooks;
     //  }
@@ -57,26 +50,22 @@ public class User extends Person
     //       this.userCheckedOutBooks = userCheckedOutBooks;
     //  }
     @Override
-    public String toString() 
-    {
+    public String toString() {
         String myUser;
         myUser = "Name: " + this.getName() + "ID:" + id;
         return myUser;
     } // End toString.
 
-    
     /**
      * search - will search through array of Users if User with id exists.
+     *
      * @param userList
      * @param accountNum
-     * @return 
+     * @return
      */
-    public static User search(User[] userList, int accountNum)
-    {
-        for (int i = 0; i < userList.length; i++)
-        {
-            if (userList[i].getId() == accountNum)
-            {
+    public static User search(User[] userList, int accountNum) {
+        for (int i = 0; i < userList.length; i++) {
+            if (userList[i].getId() == accountNum) {
                 return userList[i];
             } // End if.
         } // End for.
