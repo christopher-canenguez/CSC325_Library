@@ -18,30 +18,27 @@ import javafx.stage.Stage;
  *
  * @author Chris Canenguez
  */
-public class DatabasePageController implements Initializable {
+public class DatabasePageController implements Initializable 
+{
 
     //Configure the tableView
-    @FXML
-    private TableView<Book> tableView;
-    @FXML
-    private TableColumn<Book, Integer> isbnColumn;
-    @FXML
-    private TableColumn<Book, String> titleColumn;
-    @FXML
-    private TableColumn<Book, String> authorColumn;
-    @FXML
-    private TableColumn<Book, String> availabilityColumn;
-
+    @FXML private TableView<Book> tableView;
+    @FXML private TableColumn<Book, Integer> isbnColumn;
+    @FXML private TableColumn<Book, String> titleColumn;
+    @FXML private TableColumn<Book, String> authorColumn;
+    @FXML private TableColumn<Book, String> availabilityColumn;
+    
     @FXML
     public Button exitButton;
-
+    
     public Book[] booksArray;
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         // Set up the columns of the table.
         isbnColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
@@ -49,25 +46,30 @@ public class DatabasePageController implements Initializable {
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
 
     } // End initialize.
-
+    
     /**
-     * This method will return an ObservableList of Book Objects.
+     * This method will return an ObservableList of Book Objects. 
      */
-    public void setTableView(Book[] array) {
+    public void setTableView(Book[] array)
+    {
         ObservableList<Book> books = FXCollections.observableArrayList();
-
-        for (Book book : array) {
-            if (book != null) {
+        
+        for (Book book : array) 
+        {
+            if (book != null) 
+            {
                 books.add(book);
             }
         } // End for.
-
+        
         // Load Books.
         tableView.setItems(books);
     } // End getBooks.
-
+    
+    
     @FXML
-    public void exitButtonEvent(ActionEvent event) {
+    public void exitButtonEvent(ActionEvent event) 
+    {
         // Gets current scene when button is clicked then closes window.
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();

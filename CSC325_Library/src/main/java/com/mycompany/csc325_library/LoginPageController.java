@@ -28,26 +28,22 @@ public class LoginPageController implements Initializable {
     private Parent root;
     public User[] userList;
     private User currentUser;
-
-    @FXML
-    public Button exitButton;
-
-    @FXML
-    TextField accountNumTextField;
-    @FXML
-    TextField pinCodeTextField;
-
-    @FXML
-    Label wrongPinLabel;
-
+    
+    @FXML public Button exitButton;
+    
+    @FXML TextField accountNumTextField;
+    @FXML TextField pinCodeTextField;
+    
+    @FXML Label wrongPinLabel;
+    
     /**
      * Initializes the controller class.
-     *
      * @param url
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         // users list and populating array
         userList = new User[5];
         userList[0] = new User("Sam Hindy", 231, 231);
@@ -56,65 +52,70 @@ public class LoginPageController implements Initializable {
         userList[3] = new User("Shameed Jobb", 444, 444);;
         userList[4] = new User("Kulsom Zaraei", 555, 555);
     } // End initialize.
-
+    
     @FXML
-    public void loginButton() throws IOException {
+    public void loginButton() throws IOException
+    {
         // Gets loader for MainMenu page.
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
         root = loginLoader.load();
-
+        
         // Get data from text fields.
         int acctNum = Integer.valueOf(accountNumTextField.getText());
         int pinNum = Integer.valueOf(pinCodeTextField.getText());
-
+        
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
         currentUser = User.search(userList, acctNum);
-
+        
         // If the pin number entered doesn't match that of the pin on the account,
         // retry entering the pin code until they match.
         //if (!(currentUser.getPinCode() == pinNum)) 
-        if (currentUser == null) {
+        if (currentUser == null)
+        {
             // Set wrong pin number text visibile if both pin numbers don't match.
             wrongPinLabel.setText("The account number you entered doesn't exist. Please enter a valid account number.");
             wrongPinLabel.setVisible(true);
-
+            
             clearTextFields(); // Reset fields.
         } // End if.
-        else if (!(currentUser.getPinCode() == pinNum)) {
+        else if(!(currentUser.getPinCode() == pinNum))
+        {
             // Set wrong pin number text visibile if both pin numbers don't match.
             wrongPinLabel.setText("The pin code is wrong for this account. Please enter again.");
             wrongPinLabel.setVisible(true);
-
+            
             clearTextFields(); // Reset fields.
         } // End if.
-        else {
+        else
+        {
             // Sets stage and opens window.
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
+            
             // Get mainMenu controller.
             MainMenuPageController mainMenuPageController = loginLoader.getController();
-
+            
             // Update name.
             mainMenuPageController.updateName(currentUser.getName());
-
+            
             clearTextFields(); // Reset fields.
             wrongPinLabel.setVisible(false); // Turn off error when valid login entered.
         } // End else.
 
     } // End login.   
-
+    
     @FXML
     public void exitButtonEvent(ActionEvent event) {
         // Gets current scene when button is clicked then closes window.
         Stage stage = (Stage) exitButton.getScene().getWindow();
         stage.close();
     } // End exitButtonEvent.
-
+    
     @FXML
-    private void clearTextFields() {
+    private void clearTextFields()
+    {
         accountNumTextField.clear(); // Reset field.
         pinCodeTextField.clear(); // Reset field.
     } // end  clearTextFields.

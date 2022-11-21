@@ -13,7 +13,8 @@ import com.mycompany.csc325_library.Book;
  */
 public class Library {
 
-    public void Library() {
+    public void Library() 
+    {
 
         //authorss
         Person author1 = new Person("S.E Hinton");

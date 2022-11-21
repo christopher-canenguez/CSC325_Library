@@ -17,10 +17,9 @@ public class AccountInfoPageController implements Initializable {
 
     @FXML
     public Button exitButton;
-
+    
     /**
      * Initializes the controller class.
-     *
      * @param url
      * @param rb
      */
@@ -28,7 +27,7 @@ public class AccountInfoPageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     } // End initialize.
-
+    
     @FXML
     public void exitButtonEvent(ActionEvent event) {
         // Gets current scene when button is clicked then closes window.
