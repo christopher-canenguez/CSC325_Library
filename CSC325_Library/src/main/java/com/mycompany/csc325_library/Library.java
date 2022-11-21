@@ -2,6 +2,7 @@ package com.mycompany.csc325_library;
 
 //testing
 import com.mycompany.csc325_library.Book;
+import java.util.List;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,8 +13,31 @@ import com.mycompany.csc325_library.Book;
  * @author kulsomzaraei
  */
 public class Library {
-
-    public void Library() 
+    private static Library instance;
+    
+    Book[] bookList;
+    public static Library getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new Library();
+        }
+        return instance;
+    }
+    
+    public Book getBook(int isbn)
+    {
+        for(var b: bookList)
+        {
+            if(b.getIsbn() == isbn)
+            {
+                return b;
+            }
+        }
+        return null;
+    }
+    
+    private void Library() 
     {
 
         //authorss
@@ -39,7 +63,7 @@ public class Library {
         user5 = userList[4];
 
         //books list
-        Book[] bookList = new Book[10];
+        bookList = new Book[10];
         Book book1 = new Book("The Outsiders", author1, 123455, "Not Available");
         book1 = bookList[0];
         Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, 434566, "Not Available");
