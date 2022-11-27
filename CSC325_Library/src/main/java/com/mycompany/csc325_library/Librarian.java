@@ -10,15 +10,30 @@ package com.mycompany.csc325_library;
  */
 public class Librarian extends Person {
 
-    public String librarianID;
+    public String id;
     public int pinCode;
 
-    public Librarian(String id, int pin) {
+    public Librarian(String name, String id, int pin) {
         super(name);
         // this.userCheckedOutBooks = null;
         this.id = id;
         this.pinCode = pin;
 
-    } // End User.
+    }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(int pinCode) {
+        this.pinCode = pinCode;
+    }
 }
