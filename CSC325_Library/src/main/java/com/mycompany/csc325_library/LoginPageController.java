@@ -62,6 +62,14 @@ public class LoginPageController implements Initializable {
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
         root = loginLoader.load();
 
+        if (accountNumTextField.getText().trim().equals("") || pinCodeField.getText().trim().equals(""))
+        {
+            wrongPinLabel.setText("Field(s) are empty, please try again");
+            wrongPinLabel.setVisible(true);
+            clearTextFields();
+            return;
+        }
+        
         // Get data from text fields.
         int acctNum = Integer.parseInt(accountNumTextField.getText());
         int pinNum = Integer.parseInt(pinCodeField.getText());
