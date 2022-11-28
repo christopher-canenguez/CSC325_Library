@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -33,6 +34,7 @@ public class LoginPageController implements Initializable {
     
     @FXML TextField accountNumTextField;
     @FXML TextField pinCodeTextField;
+    @FXML PasswordField pinCodeField;
     
     @FXML Label wrongPinLabel;
     
@@ -59,10 +61,10 @@ public class LoginPageController implements Initializable {
         // Gets loader for MainMenu page.
         FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
         root = loginLoader.load();
-        
+
         // Get data from text fields.
-        int acctNum = Integer.valueOf(accountNumTextField.getText());
-        int pinNum = Integer.valueOf(pinCodeTextField.getText());
+        int acctNum = Integer.parseInt(accountNumTextField.getText());
+        int pinNum = Integer.parseInt(pinCodeField.getText());
         
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
@@ -117,6 +119,6 @@ public class LoginPageController implements Initializable {
     private void clearTextFields()
     {
         accountNumTextField.clear(); // Reset field.
-        pinCodeTextField.clear(); // Reset field.
-    } // end  clearTextFields.
+        pinCodeField.clear(); // Reset field.
+    } // End clearTextFields.
 } // End LoginPageController.
