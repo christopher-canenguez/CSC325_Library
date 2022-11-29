@@ -28,7 +28,7 @@ public class LoginPageController implements Initializable {
 
     private Parent root;
     public User[] userList;
-    private User currentUser;
+    public User currentUser;
     
     @FXML public Button exitButton;
     

@@ -18,11 +18,11 @@ public class Book
      */
     private String title;
     private Person author;
-    private int isbn;
+    private String isbn;
     private String status;
     //  private User holder; 
 
-    public Book(String bookTitle, Person bookAuthor, int bookISBN, String bookStatus) 
+    public Book(String bookTitle, Person bookAuthor, String bookISBN, String bookStatus) 
     {
         title = bookTitle;
         author = bookAuthor;
@@ -51,12 +51,12 @@ public class Book
         this.author = author;
     } // End setAuthor.
 
-    public int getIsbn() 
+    public String getIsbn() 
     {
         return isbn;
     } // End getIsbn.
 
-    public void setIsbn(int isbn) 
+    public void setIsbn(String isbn) 
     {
         this.isbn = isbn;
     } // End setIsbn.

@@ -46,14 +46,14 @@ public class MainMenuPageController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        try 
-        {
-            // TODO
-            openJDBC();
-        } catch (SQLException ex) 
-        {
-            Logger.getLogger(MainMenuPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try 
+//        {
+//            // TODO
+//            openJDBC();
+//        } catch (SQLException ex) 
+//        {
+//            Logger.getLogger(MainMenuPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
     } // End initialize.
 
     /**
@@ -152,7 +152,7 @@ public class MainMenuPageController implements Initializable
         
         while (result.next()) 
         {   
-            int isbn = result.getInt("Isbn");
+            String isbn = result.getString("Isbn");
             String title = result.getString("Title");
             String author = result.getString("Author");
             String status = result.getString("Status");
