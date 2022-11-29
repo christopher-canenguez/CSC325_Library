@@ -39,6 +39,17 @@ public class Library {
         User user5 = new User("Kulsom Zaraei", 555, 555);
         user5 = userList[4];
 
+        Librarian[] librarianList = new Librarian[2];
+
+        Librarian Librarian1 = new Librarian("Lucy Lee", 900, 900);
+        Librarian1 = librarianList[0];
+
+        Librarian Librarian2 = new Librarian("Marilyn Dot", 800, 800);
+        Librarian2 = librarianList[1];
+
+        Librarian Librarian3 = new Librarian("Marilyn Dot", 700, 700);
+        Librarian2 = librarianList[2];
+
         Book book1 = new Book("The Outsiders", author1, user4, 123455, "Not Available");
         bookList.add(book1);
         Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, user1, 434566, "Not Available");
@@ -62,15 +73,33 @@ public class Library {
     }
 
     //search 
-    public Book findBook(String title) {
+    public Book findBookByTitle(String title) {
         for (Book book : bookList) {
             if (book.getTitle().equalsIgnoreCase(title)) {
+                return book;
+            }
+        }
+        return null;
+    }
+        
+        
+
+    public Book findBookByIsbn(int isbn) {
+        for (Book book : bookList) {
+            if (book.getIsbn() == isbn) {
                 return book;
             }
         }
 
         // No book found
         return null;
+    }
+    
+
+   
+        //add books
+    public void insertBook(Book theBook) {
+        bookList.add(theBook);
     }
 
     //Take out book
@@ -94,6 +123,8 @@ public class Library {
         // could not find the book to take, title was wrong probably
         return false;
     }
+    
+    
 
     public String returnBook(String personId) {
         for (int i = 0; i < bookList.size(); i++) {
@@ -114,7 +145,9 @@ public class Library {
                 return book.getTitle();
             }
         }
-    
-   return "User Not found";
-   
-}}
+
+        return "User Not found";
+
+    }
+}
+
