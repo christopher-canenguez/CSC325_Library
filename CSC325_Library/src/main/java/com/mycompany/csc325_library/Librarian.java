@@ -10,10 +10,10 @@ package com.mycompany.csc325_library;
  */
 public class Librarian extends Person {
 
-    public String id;
+    public int id;
     public int pinCode;
 
-    public Librarian(String name, String id, int pin) {
+    public Librarian(String name, int id, int pin) {
         super(name);
         // this.userCheckedOutBooks = null;
         this.id = id;
@@ -21,11 +21,11 @@ public class Librarian extends Person {
 
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

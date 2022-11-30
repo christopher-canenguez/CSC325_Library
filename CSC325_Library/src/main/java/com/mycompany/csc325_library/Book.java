@@ -17,11 +17,11 @@ public class Book {
      */
     private String title;
     private Person author;
-    private User holder;
+    private String holder;
     private String isbn;
     private String status;
 
-    public Book(String bookTitle, Person bookAuthor, User bookHolder,String bookISBN, String bookStatus) 
+    public Book(String bookTitle, Person bookAuthor, String bookHolder,String bookISBN, String bookStatus) 
     {
         title = bookTitle;
         author = bookAuthor;
@@ -63,11 +63,11 @@ public class Book {
     } // End setStatus.
 
     
-    public Person getHolder() {
+    public String getHolder() {
         return holder;
     }
     
-    public void setHolder(User holder) {
+    public void setHolder(String holder) {
         this.holder = holder;
     }
     

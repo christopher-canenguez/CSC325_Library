@@ -50,25 +50,25 @@ public class Library {
         Librarian Librarian3 = new Librarian("Marilyn Dot", 700, 700);
         Librarian2 = librarianList[2];
 
-        Book book1 = new Book("The Outsiders", author1, user4, 123455, "Not Available");
+        Book book1 = new Book("The Outsiders", author1, "", "123455", "Not Available");
         bookList.add(book1);
-        Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, user1, 434566, "Not Available");
+        Book book2 = new Book("Harry Potter and The Sorcerers Stone", author2, "", "434566", "Not Available");
         bookList.add(book2);
-        Book book3 = new Book("Hamlet", author3, null, 76859, "Available");
+        Book book3 = new Book("Hamlet", author3, "", "76859", "Available");
         bookList.add(book3);
-        Book book4 = new Book("Romeo and Juliet", author3, null, 78899, "Available");
+        Book book4 = new Book("Romeo and Juliet", author3, "", "78899", "Available");
         bookList.add(book4);
-        Book book5 = new Book("Redburn", author4, null, 75648, "Available");
+        Book book5 = new Book("Redburn", author4, "", "75648", "Available");
         bookList.add(book5);
-        Book book6 = new Book("Billy Budd", author4, user5, 654322, "Available");
+        Book book6 = new Book("Billy Budd", author4, "", "654322", "Available");
         bookList.add(book6);
-        Book book7 = new Book("Harry Potter and  the Chamber of Secrets", author2, null, 423432, "Available");
+        Book book7 = new Book("Harry Potter and  the Chamber of Secrets", author2, "", "423432", "Available");
         bookList.add(book7);
-        Book book8 = new Book("Harry Potter and  the Prisioner of Askaban", author2, user4, 42322, "Available");
+        Book book8 = new Book("Harry Potter and  the Prisioner of Askaban", author2, "", "42322", "Available");
         bookList.add(book8);
-        Book book9 = new Book("Don Quixote", author5, null, 123229, "Available");
+        Book book9 = new Book("Don Quixote", author5, "", "123229", "Available");
         bookList.add(book9);
-        Book book10 = new Book("To Kill a Mocking Bird", author6, null, 432543, "Available");
+        Book book10 = new Book("To Kill a Mocking Bird", author6, "", "432543", "Available");
         bookList.add(book10);
     }
 
@@ -81,10 +81,8 @@ public class Library {
         }
         return null;
     }
-        
-        
 
-    public Book findBookByIsbn(int isbn) {
+    public Book findBookByIsbn(String isbn) {
         for (Book book : bookList) {
             if (book.getIsbn() == isbn) {
                 return book;
@@ -94,10 +92,8 @@ public class Library {
         // No book found
         return null;
     }
-    
 
-   
-        //add books
+    //add books
     public void insertBook(Book theBook) {
         bookList.add(theBook);
     }
@@ -123,8 +119,6 @@ public class Library {
         // could not find the book to take, title was wrong probably
         return false;
     }
-    
-    
 
     public String returnBook(String personId) {
         for (int i = 0; i < bookList.size(); i++) {

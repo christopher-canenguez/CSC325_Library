@@ -35,7 +35,7 @@ public class MainMenuPageController implements Initializable {
 
     @FXML
     public Button logoutButton;
-    
+
     @FXML
     Label nameLabel;
 
@@ -47,8 +47,9 @@ public class MainMenuPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        if (LoginPageController.currentUser != null)
+        if (LoginPageController.currentUser != null) {
             nameLabel.setText(LoginPageController.currentUser.getName());
+        }
     } // End initialize.
 
     /**
@@ -115,59 +116,5 @@ public class MainMenuPageController implements Initializable {
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         stage.close();
     } // End logoutButton.
-
-    /**
-     * openJDBC - method that creates a connection from project to database
-     * file.
-     *
-     * @throws SQLException
-     */
-    public void openJDBC() throws SQLException {
-        String databaseURL = "";
-        Connection conn = null;
-
-        // Name of file.
-        databaseURL = "jdbc:ucanaccess://.//Books.accdb";
-        conn = DriverManager.getConnection(databaseURL);
-
-        // Test to print database info.
-        String tableName = "Books";
-        Statement stmt = conn.createStatement();
-        ResultSet result = stmt.executeQuery("select * from " + tableName);
-
-        int i = 0;
-
-        while (result.next()) {
-            String isbn = result.getString("Isbn");
-            String title = result.getString("Title");
-            String author = result.getString("Author");
-            String status = result.getString("Status");
-            String person = result.getString("Person");
-            //System.out.printf("%d, %s, %s, %s, %s\n", isbn, title, author, status, person);
-            books[i] = new Book(title, new Person(author), isbn, status);
-            i++;
-        } // End while.
-
-        // Test if array is populated.
-        for (int j = 0; j < books.length; j++) {
-            Book currBook = books[j];
-
-            if (currBook != null) {
-                System.out.println(currBook.toString());
-            }
-        } // End for.
-
-    } // End openJDBC.
-
-//    /**
-//     * method used to update the name label to that of the current user that is
-//     * using system.
-//     *
-//     * @param userName
-//     */
-//    @FXML
-//    public void updateName(String userName) {
-//        nameLabel.setText(userName + "!");
-//    } // End updateNum.
 
 } // End MainMenuPageController.

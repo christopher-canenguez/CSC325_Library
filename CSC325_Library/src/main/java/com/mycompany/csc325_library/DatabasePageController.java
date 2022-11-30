@@ -87,6 +87,7 @@ public class DatabasePageController implements Initializable {
                 for (QueryDocumentSnapshot document : documents) {
                     book = new Book(document.getData().get("title").toString(),
                             new Person(document.getData().get("author").toString()),
+                            document.getData().get("holder").toString(),
                             document.getData().get("isbn").toString(),
                             document.getData().get("availability").toString());
 
