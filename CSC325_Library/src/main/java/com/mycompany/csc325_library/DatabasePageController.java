@@ -72,24 +72,24 @@ public class DatabasePageController implements Initializable {
         try {
             key = false;
             tableView.getItems().clear(); // Clear the table when reading.
-            
+
             // Asynchronously retrieve all documents.
             ApiFuture<QuerySnapshot> future = App.fstore.collection("Books").get();
-            
+
             // future.get() blocks on response
             List<QueryDocumentSnapshot> documents;
-            
+
             // Go through the firebase database, create a Person object for every document.
             documents = future.get().getDocuments();
-            
+
             if (documents.size() > 0) {
                 System.out.println("Outing...");
                 for (QueryDocumentSnapshot document : documents) {
                     book = new Book(document.getData().get("title").toString(),
-                                    new Person(document.getData().get("author").toString()),
-                                    document.getData().get("isbn").toString(),
-                                    document.getData().get("availability").toString());
-                    
+                            new Person(document.getData().get("author").toString()),
+                            document.getData().get("isbn").toString(),
+                            document.getData().get("availability").toString());
+
                     books.add(book);
                 }
             }
@@ -99,7 +99,7 @@ public class DatabasePageController implements Initializable {
         } catch (ExecutionException ex) {
             Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return key;
     }
 

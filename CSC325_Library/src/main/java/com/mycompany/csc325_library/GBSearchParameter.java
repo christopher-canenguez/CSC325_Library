@@ -9,6 +9,7 @@ package com.mycompany.csc325_library;
  * @author shameedjob
  */
 public class GBSearchParameter {
+
     public GBSearchParameterType paramType;
     public String search;
 
@@ -21,19 +22,14 @@ public class GBSearchParameter {
         this.search = search;
         this.paramType = GBSearchParameterType.none;
     }
-    
-    
+
     @Override
-    public String toString()
-    {
+    public String toString() {
         String outSearch = HttpController.parameterFormat(search);
-        if(paramType == GBSearchParameterType.none)
-        {
+        if (paramType == GBSearchParameterType.none) {
             return outSearch;
         }
-        
+
         return String.format("%s:%s", paramType.toString(), outSearch);
     }
 }
-
-

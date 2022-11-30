@@ -12,16 +12,14 @@ import java.io.IOException;
  *
  * @author Chris Canenguez
  */
-public class FirestoreContext 
-{
-    public Firestore firebase() 
-    {
-        try 
-        {
+public class FirestoreContext {
+
+    public Firestore firebase() {
+        try {
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(getClass().getResourceAsStream("librarykey.json")))
                     .build();
-            
+
             FirebaseApp.initializeApp(options);
         } catch (IOException ex) {
             ex.printStackTrace();

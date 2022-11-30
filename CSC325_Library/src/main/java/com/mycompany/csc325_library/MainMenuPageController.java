@@ -25,17 +25,19 @@ import javafx.stage.Stage;
  *
  * @author Chris Canenguez
  */
-public class MainMenuPageController implements Initializable 
-{
+public class MainMenuPageController implements Initializable {
 
     private Parent root1;
     private Parent root2;
     private Parent root3;
-    
+
     public Book[] books = new Book[10]; // Book Array.
 
-    @FXML public Button logoutButton;
-    @FXML Label nameLabel;
+    @FXML
+    public Button logoutButton;
+    
+    @FXML
+    Label nameLabel;
 
     /**
      * Initializes the controller class.
@@ -44,16 +46,9 @@ public class MainMenuPageController implements Initializable
      * @param rb
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
-//        try 
-//        {
-//            // TODO
-//            openJDBC();
-//        } catch (SQLException ex) 
-//        {
-//            Logger.getLogger(MainMenuPageController.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
+    public void initialize(URL url, ResourceBundle rb) {
+        if (LoginPageController.currentUser != null)
+            nameLabel.setText(LoginPageController.currentUser.getName());
     } // End initialize.
 
     /**
@@ -62,8 +57,7 @@ public class MainMenuPageController implements Initializable
      * @throws IOException
      */
     @FXML
-    public void goToCheckoutButton() throws IOException 
-    {
+    public void goToCheckoutButton() throws IOException {
         // Retrieves Loader for BookCheckout page.
         FXMLLoader checkoutLoader = new FXMLLoader(getClass().getResource("BookCheckoutPage.fxml"));
         root1 = checkoutLoader.load();
@@ -80,8 +74,7 @@ public class MainMenuPageController implements Initializable
      * @throws IOException
      */
     @FXML
-    public void goToAccountInfoButton() throws IOException 
-    {
+    public void goToAccountInfoButton() throws IOException {
         // Retrieves Loader for AccountInfo page.
         FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
         root2 = accountLoader.load();
@@ -98,8 +91,7 @@ public class MainMenuPageController implements Initializable
      * @throws IOException
      */
     @FXML
-    public void goToDatabaseButton() throws IOException 
-    {
+    public void goToDatabaseButton() throws IOException {
         // Retrieves Loader for Database page.
         FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
         root3 = databaseLoader.load();
@@ -108,12 +100,7 @@ public class MainMenuPageController implements Initializable
         Stage stage = new Stage();
         stage.setScene(new Scene(root3));
         stage.show();
-        
-        // Get controller of database page.
-        DatabasePageController databaseController = databaseLoader.getController();
-        
-        // Transfer books array to databasePageController.
-        databaseController.setTableView(books);
+
     } // End goToDatabaseButton.
 
     /**
@@ -123,19 +110,19 @@ public class MainMenuPageController implements Initializable
      * @param event
      */
     @FXML
-    public void logoutButton(ActionEvent event) 
-    {
+    public void logoutButton(ActionEvent event) {
         // Gets current scene when button is clicked then closes window.
         Stage stage = (Stage) logoutButton.getScene().getWindow();
         stage.close();
     } // End logoutButton.
 
     /**
-     * openJDBC - method that creates a connection from project to database file.
-     * @throws SQLException 
+     * openJDBC - method that creates a connection from project to database
+     * file.
+     *
+     * @throws SQLException
      */
-    public void openJDBC() throws SQLException 
-    {
+    public void openJDBC() throws SQLException {
         String databaseURL = "";
         Connection conn = null;
 
@@ -149,9 +136,8 @@ public class MainMenuPageController implements Initializable
         ResultSet result = stmt.executeQuery("select * from " + tableName);
 
         int i = 0;
-        
-        while (result.next()) 
-        {   
+
+        while (result.next()) {
             String isbn = result.getString("Isbn");
             String title = result.getString("Title");
             String author = result.getString("Author");
@@ -163,24 +149,25 @@ public class MainMenuPageController implements Initializable
         } // End while.
 
         // Test if array is populated.
-        for (int j = 0; j < books.length; j++)
-        {
+        for (int j = 0; j < books.length; j++) {
             Book currBook = books[j];
-            
-            if (currBook != null)
+
+            if (currBook != null) {
                 System.out.println(currBook.toString());
+            }
         } // End for.
-        
+
     } // End openJDBC.
-    
-    /**
-     * method used to update the name label to that of the current user that is using system.
-     * @param userName 
-     */
-    @FXML
-    public void updateName(String userName)
-    {
-        nameLabel.setText(userName + "!");
-    } // End updateNum.
+
+//    /**
+//     * method used to update the name label to that of the current user that is
+//     * using system.
+//     *
+//     * @param userName
+//     */
+//    @FXML
+//    public void updateName(String userName) {
+//        nameLabel.setText(userName + "!");
+//    } // End updateNum.
 
 } // End MainMenuPageController.

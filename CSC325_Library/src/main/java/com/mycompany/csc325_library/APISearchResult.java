@@ -9,6 +9,7 @@ package com.mycompany.csc325_library;
  * @author shameedjob
  */
 public class APISearchResult {
+
     public String kind;
     public int totalItems;
     public APIBookResult[] items;

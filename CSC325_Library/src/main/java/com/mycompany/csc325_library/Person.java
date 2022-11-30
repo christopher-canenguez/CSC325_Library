@@ -22,8 +22,7 @@ public class Person {
      *
      * @param name1
      */
-    public Person(String name1) 
-    {
+    public Person(String name1) {
         name = name1;
     } // End Person.
 
@@ -32,13 +31,11 @@ public class Person {
      *
      * @return
      */
-    public void setName(String name) 
-    {
+    public void setName(String name) {
         this.name = name;
     } // End setName.
 
-    public String getName() 
-    {
+    public String getName() {
         return name;
     } // End getName.
 
@@ -46,8 +43,7 @@ public class Person {
      * ToString method
      */
     @Override
-    public String toString() 
-    {
+    public String toString() {
         //String personInfo = "Person Information - " + "Name: " + name;
         String personInfo = name;
         return personInfo;

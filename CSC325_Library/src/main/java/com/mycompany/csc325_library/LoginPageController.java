@@ -27,7 +27,6 @@ import javafx.stage.Stage;
 public class LoginPageController implements Initializable {
 
     private Parent root;
-    private Parent root2;
     public User[] userList;
     public static User currentUser;
 
@@ -63,9 +62,6 @@ public class LoginPageController implements Initializable {
 
     @FXML
     public void loginButton() throws IOException {
-        // Gets loader for MainMenu page.
-        FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
-        root = menuLoader.load();
 
         if (accountNumTextField.getText().trim().equals("") || pinCodeField.getText().trim().equals("")) {
             wrongPinLabel.setText("Field(s) are empty, please try again");
@@ -101,23 +97,13 @@ public class LoginPageController implements Initializable {
         } // End if.
         else {
             // Sets stage and opens window.
+            // Gets loader for MainMenu page.
+            FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
+            root = menuLoader.load();
+            
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
             stage.show();
-
-            // Get mainMenu controller.
-            MainMenuPageController mainMenuPageController = menuLoader.getController();
-
-            // Update name.
-            mainMenuPageController.updateName(currentUser.getName());
-
-            // Gets loader for MainMenu page.
-            FXMLLoader accountPageLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
-            root2 = accountPageLoader.load();
-            
-            AccountInfoPageController acctInfoLoader = accountPageLoader.getController();
-
-            acctInfoLoader.updateFieldsForCurrentUser(currentUser.getName(), currentUser.getId(), currentUser.getPinCode());
 
             clearTextFields(); // Reset fields.
             wrongPinLabel.setVisible(false); // Turn off error when valid login entered.
