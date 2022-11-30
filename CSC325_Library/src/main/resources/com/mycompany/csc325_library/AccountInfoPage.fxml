@@ -37,7 +37,7 @@
                   <Font name="Tahoma Bold" size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="aaccountNumberTextField" editable="false" focusTraversable="false" layoutX="367.0" layoutY="184.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Number" style="-fx-border-color: #e11584; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
+            <TextField fx:id="accountNumberTextField" editable="false" focusTraversable="false" layoutX="367.0" layoutY="184.0" pickOnBounds="false" prefHeight="33.0" prefWidth="190.0" promptText="Account Number" style="-fx-border-color: #e11584; -fx-border-radius: 20; -fx-border-width: 3; -fx-background-radius: 20;">
                <font>
                   <Font name="Tahoma Bold" size="13.0" />
                </font>

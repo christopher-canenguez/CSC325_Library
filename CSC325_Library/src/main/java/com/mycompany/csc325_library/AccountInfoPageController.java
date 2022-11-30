@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -18,9 +19,9 @@ public class AccountInfoPageController implements Initializable {
 
     @FXML public Button exitButton;
     
-    @FXML public TextField accountNameTextField;
-    @FXML public TextField accountNumberTextField;
-    @FXML public TextField accountPinTextField;
+    @FXML TextField accountNameTextField;
+    @FXML TextField accountNumberTextField;
+    @FXML TextField accountPinTextField;
     
     /**
      * Initializes the controller class.
@@ -29,7 +30,10 @@ public class AccountInfoPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        accountNameTextField.setText(LoginPageController.currentUser.getName());
+        accountNumberTextField.setText(String.valueOf(LoginPageController.currentUser.getId()));
+        accountPinTextField.setText(String.valueOf(LoginPageController.currentUser.getPinCode()));
+        
     } // End initialize.
     
     @FXML
