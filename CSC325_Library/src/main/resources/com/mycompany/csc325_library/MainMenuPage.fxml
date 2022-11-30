@@ -21,10 +21,10 @@
                </font>
             </Label>
             <Rectangle arcHeight="25.0" arcWidth="25.0" fill="WHITE" height="330.0" layoutX="280.0" layoutY="47.0" stroke="WHITE" strokeType="INSIDE" width="290.0" />
-            <Button layoutX="316.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToCheckoutButton" prefHeight="33.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Checkout" />
-            <Button layoutX="316.0" layoutY="145.0" mnemonicParsing="false" onAction="#goToDatabaseButton" prefHeight="33.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Search Library Database" />
-            <Button layoutX="316.0" layoutY="212.0" mnemonicParsing="false" onAction="#goToAccountInfoButton" prefHeight="33.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="My Account" />
-            <Button fx:id="logoutButton" layoutX="316.0" layoutY="278.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="33.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Logout" />
+            <Button layoutX="316.0" layoutY="81.0" mnemonicParsing="false" onAction="#goToCheckoutButton" prefHeight="39.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Checkout" />
+            <Button layoutX="316.0" layoutY="145.0" mnemonicParsing="false" onAction="#goToDatabaseButton" prefHeight="39.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Search Library Database" />
+            <Button layoutX="316.0" layoutY="212.0" mnemonicParsing="false" onAction="#goToAccountInfoButton" prefHeight="39.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="My Account" />
+            <Button fx:id="logoutButton" layoutX="316.0" layoutY="278.0" mnemonicParsing="false" onAction="#logoutButton" prefHeight="39.0" prefWidth="221.0" stylesheets="@mainmenupage.css" text="Logout" />
             <Label layoutX="39.0" layoutY="194.0" prefHeight="183.0" prefWidth="221.0" text="&quot;Not all those who wandar are lost&quot; - J.R.R Tolkien, The Lord of the Rings" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="Tahoma Bold" size="23.0" />
