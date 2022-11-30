@@ -10,8 +10,7 @@ package com.mycompany.csc325_library;
  *
  * @author Kulsom Zaraei
  */
-public class Book 
-{
+public class Book {
 
     /**
      * instance variables
@@ -19,10 +18,10 @@ public class Book
     private String title;
     private Person author;
     private User holder;
-    private int isbn;
+    private String isbn;
     private String status;
 
-    public Book(String bookTitle, Person bookAuthor, User bookHolder,int bookISBN, String bookStatus) 
+    public Book(String bookTitle, Person bookAuthor, User bookHolder,String bookISBN, String bookStatus) 
     {
         title = bookTitle;
         author = bookAuthor;
@@ -31,43 +30,35 @@ public class Book
         holder = bookHolder;
     } // End Book.
 
-    public String getTitle() 
-    {
+    public String getTitle() {
         return title;
     } // End getTitle.
 
-    public void setTitle(String title) 
-    {
+    public void setTitle(String title) {
         this.title = title;
     } // End setTitle.
 
-    public Person getAuthor() 
-    {
+    public Person getAuthor() {
         return author;
     } // End getAuthor.
 
-    public void setAuthor(Person author) 
-    {
+    public void setAuthor(Person author) {
         this.author = author;
     } // End setAuthor.
 
-    public int getIsbn() 
-    {
+    public String getIsbn() {
         return isbn;
     } // End getIsbn.
 
-    public void setIsbn(int isbn) 
-    {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     } // End setIsbn.
 
-    public String getStatus() 
-    {
+    public String getStatus() {
         return status;
     } // End getStaatus.
 
-    public void setStatus(String status) 
-    {
+    public void setStatus(String status) {
         this.status = status;
     } // End setStatus.
 

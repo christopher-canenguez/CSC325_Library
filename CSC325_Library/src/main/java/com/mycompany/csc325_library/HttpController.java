@@ -18,24 +18,23 @@ import java.nio.charset.StandardCharsets;
  * @author shameedjob
  */
 public class HttpController {
-    
+
     public String getHTML(String urlToRead) throws Exception {
         StringBuilder result = new StringBuilder();
         URL url = new URL(urlToRead);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
-        try (BufferedReader reader = new BufferedReader(
-                    new InputStreamReader(conn.getInputStream()))) {
-            for (String line; (line = reader.readLine()) != null; ) {
-                result.append("\n"+line);
+        try ( BufferedReader reader = new BufferedReader(
+                new InputStreamReader(conn.getInputStream()))) {
+            for (String line; (line = reader.readLine()) != null;) {
+                result.append("\n" + line);
             }
         }
         return result.toString();
-     }
-    
-    public static String parameterFormat(String parameters)
-    {
+    }
+
+    public static String parameterFormat(String parameters) {
         return URLEncoder.encode(parameters, StandardCharsets.UTF_8);
     }
-    
+
 }

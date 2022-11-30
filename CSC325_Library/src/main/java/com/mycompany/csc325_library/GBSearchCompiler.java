@@ -12,68 +12,58 @@ import java.util.List;
  * @author shameedjob
  */
 public class GBSearchCompiler {
+
     private ArrayList searchData;
-    
-    public GBSearchCompiler()
-    {
-        searchData = new ArrayList<GBSearchParameter>();        
+
+    public GBSearchCompiler() {
+        searchData = new ArrayList<GBSearchParameter>();
     }
-    
-    public void AddParameter(GBSearchParameterType type, String search)
-    {
+
+    public void AddParameter(GBSearchParameterType type, String search) {
         searchData.add(new GBSearchParameter(type, search));
     }
-    
-    public GBSearchCompiler addAuthorParameter(String search)
-    {
+
+    public GBSearchCompiler addAuthorParameter(String search) {
         AddParameter(GBSearchParameterType.inauthor, search);
         return this;
     }
-    
-    public GBSearchCompiler addPublisherParameter(String search)
-    {
+
+    public GBSearchCompiler addPublisherParameter(String search) {
         AddParameter(GBSearchParameterType.inpublisher, search);
         return this;
     }
-    
-    public GBSearchCompiler addTitleParameter(String search)
-    {
+
+    public GBSearchCompiler addTitleParameter(String search) {
         AddParameter(GBSearchParameterType.intitle, search);
         return this;
     }
-    
-    public GBSearchCompiler addSubjectParameter(String search)
-    {
+
+    public GBSearchCompiler addSubjectParameter(String search) {
         AddParameter(GBSearchParameterType.subject, search);
         return this;
     }
-    
-    public GBSearchCompiler addOCLCParameter(String search)
-    {
+
+    public GBSearchCompiler addOCLCParameter(String search) {
         AddParameter(GBSearchParameterType.oclc, search);
         return this;
     }
-    
-    public GBSearchCompiler addISBNParameter(String search)
-    {
+
+    public GBSearchCompiler addISBNParameter(String search) {
         AddParameter(GBSearchParameterType.isbn, search);
         return this;
     }
-    
-    public GBSearchCompiler addLCCNParameter(String search)
-    {
+
+    public GBSearchCompiler addLCCNParameter(String search) {
         AddParameter(GBSearchParameterType.lccn, search);
         return this;
     }
-    
-    public GBSearchCompiler addGenericParameter(String search)
-    {
+
+    public GBSearchCompiler addGenericParameter(String search) {
         AddParameter(GBSearchParameterType.none, search);
         return this;
     }
-    
-    public GBSearchObject compile()
-    {
+
+    public GBSearchObject compile() {
         return new GBSearchObject(searchData);
     }
 }

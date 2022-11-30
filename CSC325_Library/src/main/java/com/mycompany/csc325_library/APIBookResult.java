@@ -9,14 +9,16 @@ package com.mycompany.csc325_library;
  * @author shameedjob
  */
 public class APIBookResult {
+
     public String kind;
     public String id;
     public String etag;
     public String selfLink;
-    
+
     public VolumeInfo volumeInfo;
-    
-    public class VolumeInfo{
+
+    public class VolumeInfo {
+
         public String title;
         public String subtitle;
         public String[] authors;
@@ -32,7 +34,7 @@ public class APIBookResult {
         public String[] categories;
         public String maturityRating;
         public boolean allowAnonLogging;
-        
+
         public String contentVersion;
         public PanelizationSummary panelizationSummary;
         public ImageLinks imageLinks;
@@ -42,38 +44,42 @@ public class APIBookResult {
         public String canonicalVolumeLink;
         public SaleInfo saleInfo;
         public SearchInfo searchInfo;
-        
-        public class IndustryIdentifier{
+
+        public class IndustryIdentifier {
+
             public String type;
             public String identifier;
         }
 
-        public class ReadingMode{
+        public class ReadingMode {
+
             public boolean text;
             public boolean image;
         }
-        
-        public class PanelizationSummary{
+
+        public class PanelizationSummary {
+
             public boolean containsEpubBubbles;
             public boolean containsImageBubbles;
         }
-        
-        public class ImageLinks{
+
+        public class ImageLinks {
+
             public String smallThumbnail;
             public String thumbnail;
         }
-        
 
     }
-    
-    public class SaleInfo{
+
+    public class SaleInfo {
+
         public String country;
         public String saleability;
         public boolean isEbook;
     }
-        
-    public class AccessInfo
-    {
+
+    public class AccessInfo {
+
         public String country;
         public String viewability;
         public boolean embeddable;
@@ -84,19 +90,21 @@ public class APIBookResult {
         public String webReaderLink;
         public String accessViewStatus;
         public boolean quoteSharingAllowed;
-        
-        public class Epub{
+
+        public class Epub {
+
             public boolean isAvailable;
         }
-        
-        public class Pdf{
+
+        public class Pdf {
+
             public boolean isAvailable;
         }
-        
+
     }
-    
-    public class SearchInfo
-    {
+
+    public class SearchInfo {
+
         public String textSnippet;
     }
 }

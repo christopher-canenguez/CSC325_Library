@@ -11,10 +11,10 @@ import java.util.ArrayList;
  * @author shameedjob
  */
 public class GBSearchObject {
+
     public GBSearchParameter[] data;
-    
-    public GBSearchObject(ArrayList<GBSearchParameter> data)
-    {
+
+    public GBSearchObject(ArrayList<GBSearchParameter> data) {
         this.data = data.toArray(new GBSearchParameter[0]);
     }
 }
