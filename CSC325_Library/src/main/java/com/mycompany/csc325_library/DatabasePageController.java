@@ -38,6 +38,8 @@ public class DatabasePageController implements Initializable {
     private TableColumn<Book, String> authorColumn;
     @FXML
     private TableColumn<Book, String> availabilityColumn;
+    @FXML
+    private TableColumn<Book, String> holderColumn;
 
     @FXML
     public Button exitButton;
@@ -59,6 +61,7 @@ public class DatabasePageController implements Initializable {
         isbnColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
+        holderColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("holder"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
 
     } // End initialize.
