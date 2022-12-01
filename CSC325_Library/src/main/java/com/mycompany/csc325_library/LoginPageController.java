@@ -27,7 +27,7 @@ import javafx.stage.Stage;
 public class LoginPageController implements Initializable {
 
     private Parent root;
-    public User[] userList;
+    public static User[] userList;
     public static User currentUser;
 
     @FXML
