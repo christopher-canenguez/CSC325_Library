@@ -123,7 +123,7 @@ public class BookCheckoutPageController implements Initializable {
             docRef = App.fstore.collection("Books").document(isbn);
             ApiFuture<WriteResult> future2 = docRef.update("availability", "UNAVAILABLE");
             ApiFuture<WriteResult> future3 = docRef.update("holder", currentUser.getName());
-            
+            clearTextFields();
             successLabel.setVisible(true);
         }
     }

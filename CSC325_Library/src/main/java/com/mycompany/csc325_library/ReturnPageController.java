@@ -112,6 +112,11 @@ public class ReturnPageController implements Initializable {
 
             clearTextFields(); // Reset fields.
         } // End if.
+        else if (!(currentUser.getName().equals(document.getData().get("holder"))))
+        {
+            errorLabel.setText("Only the book holder can return this book.");
+            errorLabel.setVisible(true);
+        }
         else {
             // Update an existing document
             docRef = App.fstore.collection("Books").document(isbn);
