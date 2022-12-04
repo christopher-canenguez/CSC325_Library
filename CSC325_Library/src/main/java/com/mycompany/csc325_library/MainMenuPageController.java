@@ -30,6 +30,7 @@ public class MainMenuPageController implements Initializable {
     private Parent root1;
     private Parent root2;
     private Parent root3;
+    private Parent root4;
 
     public Book[] books = new Book[10]; // Book Array.
 
@@ -100,6 +101,24 @@ public class MainMenuPageController implements Initializable {
         // Creates and loads scene.
         Stage stage = new Stage();
         stage.setScene(new Scene(root3));
+        stage.show();
+
+    } // End goToDatabaseButton.
+    
+    /**
+     * Method that transfers user from main menu to return page.
+     *
+     * @throws IOException
+     */
+    @FXML
+    public void goToReturnPage() throws IOException {
+        // Retrieves Loader for Database page.
+        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("ReturnPage.fxml"));
+        root4 = databaseLoader.load();
+
+        // Creates and loads scene.
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root4));
         stage.show();
 
     } // End goToDatabaseButton.
