@@ -76,6 +76,17 @@ public class GoogleBooksController extends HttpController{
         
         return bookList;
     }
+    
+    public static ArrayList<Book> getBooksForSearch(ArrayList<Book> book, int page, int booksPerPage)
+    {
+        int indexToStart = (page-1) * booksPerPage;
+        ArrayList returnBooks = new ArrayList();
+        for(int i = indexToStart; i < book.size(); i++)
+        {
+            returnBooks.add(book.get(i));
+        }
+        return returnBooks;
+    }
             
     
     public APISearchResult search(GBSearchObject searchObject)

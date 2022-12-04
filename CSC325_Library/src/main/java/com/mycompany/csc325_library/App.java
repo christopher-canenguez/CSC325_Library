@@ -6,6 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import com.google.cloud.firestore.Firestore;
+import com.google.firebase.auth.FirebaseAuth;
+
 
 /**
  * JavaFX Library App
@@ -16,8 +19,11 @@ import java.io.IOException;
  */
 public class App extends Application 
 {
-
-    private static Scene scene;
+    public static Firestore fstore;
+    public static String userEmail;
+    public static FirebaseAuth fauth;
+    public static Scene scene;
+    private final FirestoreContext contxtFirebase = new FirestoreContext();
 
     @Override
     public void start(Stage stage) throws IOException 

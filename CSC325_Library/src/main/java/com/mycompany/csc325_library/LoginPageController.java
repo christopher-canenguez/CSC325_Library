@@ -17,13 +17,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 /**
  * FXML Controller class
  *
  * @author Chris Canenguez
  */
 public class LoginPageController implements Initializable {
+    
 
     private Parent root;
     public User[] userList;
