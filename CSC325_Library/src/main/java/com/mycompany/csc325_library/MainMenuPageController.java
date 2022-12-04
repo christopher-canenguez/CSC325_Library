@@ -101,14 +101,7 @@ public class MainMenuPageController implements Initializable {
     @FXML
     public void goToReturnPage() throws IOException {
         // Retrieves Loader for Database page.
-        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("ReturnPage.fxml"));
-        root4 = databaseLoader.load();
-
-        // Creates and loads scene.
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root4));
-        stage.show();
-
+        App.setRoot("ReturnPage");
     } // End goToDatabaseButton.
 
     /**
