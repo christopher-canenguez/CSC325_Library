@@ -99,11 +99,12 @@ public class LoginPageController implements Initializable {
             // Sets stage and opens window.
             // Gets loader for MainMenu page.
             FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
-            root = menuLoader.load();
-
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.show();
+//            root = menuLoader.load();
+            App.loadMain();
+//
+//            Stage stage = new Stage();
+//            stage.setScene(new Scene(root));
+//            stage.show();
 
             clearTextFields(); // Reset fields.
             wrongPinLabel.setVisible(false); // Turn off error when valid login entered.

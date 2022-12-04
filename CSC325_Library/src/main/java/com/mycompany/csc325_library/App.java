@@ -39,6 +39,11 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     } // End Parent.
+    
+    static void loadMain() throws IOException
+    {
+        setRoot("MainMenuPage");
+    }
 
     public static void testSearchParameter() {
         GoogleBooksController gbc = new GoogleBooksController();

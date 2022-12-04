@@ -60,13 +60,7 @@ public class MainMenuPageController implements Initializable {
     @FXML
     public void goToCheckoutButton() throws IOException {
         // Retrieves Loader for BookCheckout page.
-        FXMLLoader checkoutLoader = new FXMLLoader(getClass().getResource("BookCheckoutPage.fxml"));
-        root1 = checkoutLoader.load();
-
-        // Creates and loads scene.
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root1));
-        stage.show();
+        App.setRoot("BookCheckoutPage");
     } // End goToCheckoutButton.
 
     /**
@@ -77,13 +71,7 @@ public class MainMenuPageController implements Initializable {
     @FXML
     public void goToAccountInfoButton() throws IOException {
         // Retrieves Loader for AccountInfo page.
-        FXMLLoader accountLoader = new FXMLLoader(getClass().getResource("AccountInfoPage.fxml"));
-        root2 = accountLoader.load();
-
-        // Creates and loads scene.
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root2));
-        stage.show();
+        App.setRoot("AccountInfoPage");
     } // End goToAccountInfoButton.
 
     /**
@@ -111,10 +99,9 @@ public class MainMenuPageController implements Initializable {
      * @param event
      */
     @FXML
-    public void logoutButton(ActionEvent event) {
+    public void logoutButton(ActionEvent event) throws IOException {
         // Gets current scene when button is clicked then closes window.
-        Stage stage = (Stage) logoutButton.getScene().getWindow();
-        stage.close();
+        App.setRoot("LoginPage");
     } // End logoutButton.
 
 } // End MainMenuPageController.

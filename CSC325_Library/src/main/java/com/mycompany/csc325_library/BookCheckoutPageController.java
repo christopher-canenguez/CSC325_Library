@@ -9,6 +9,7 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.WriteResult;
 import static com.mycompany.csc325_library.LoginPageController.currentUser;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -136,9 +137,8 @@ public class BookCheckoutPageController implements Initializable {
     } // End clearTextFields.
 
     @FXML
-    public void exitButtonEvent(ActionEvent event) {
+    public void exitButtonEvent(ActionEvent event) throws IOException {
         // Gets current scene when button is clicked then closes window.
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
+        App.loadMain();
     } // End exitButtonEvent.
 } // End BookCheckoutPageController.
