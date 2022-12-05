@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -65,6 +66,8 @@ public class DatabasePageController implements Initializable {
     private boolean key;
     private Book book;
     ObservableList<Book> books = FXCollections.observableArrayList();
+    @FXML
+    private TextField searchTextField;
 
     /**
      * Initializes the controller class.
@@ -123,6 +126,22 @@ public class DatabasePageController implements Initializable {
         try {
             key = false;
             tableView.getItems().clear(); // Clear the table when reading.
+            var gbSearchCompiler = new GBSearchCompiler();
+            
+            if(isbnRadioButton.isSelected())
+            {
+                gbSearchCompiler.addISBNParameter(searchTextField.getText());
+            }
+            else if(authorRadioButton.isSelected())
+            {
+                gbSearchCompiler.addAuthorParameter(searchTextField.getText());
+            }
+            else if(titleRadioButton.isSelected())
+            {
+                gbSearchCompiler.addTitleParameter(searchTextField.getText());
+            }
+            var results = new GoogleBooksController().search(gbSearchCompiler.compile());
+//            results.items;
 
             // Asynchronously retrieve all documents.
             ApiFuture<QuerySnapshot> future = App.fstore.collection("Books").get();
