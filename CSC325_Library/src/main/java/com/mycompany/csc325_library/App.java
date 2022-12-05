@@ -23,6 +23,7 @@ import org.apache.commons.lang3.time.DateUtils;
 public class App extends Application {
 
     public static Scene scene;
+    public static Stage window;
 
     // Firestore objects.
     public static Firestore fstore;
@@ -31,10 +32,14 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         fstore = contxtFirebase.firebase();
+        window = stage;
+        scene = new Scene(loadFXML("LoginPage"), 600, 400);
 
-        scene = new Scene(loadFXML("LoginPage"), 600, 402);
+        
         stage.setScene(scene);
         stage.show();
+                System.out.println(window.getHeight());
+        System.out.println(window.getWidth());
     } // End start.
 
     static void setRoot(String fxml) throws IOException {
@@ -68,10 +73,8 @@ public class App extends Application {
     {
         if(timerSet == true)
         {
-            System.out.println("TRY TO END");
             logInTimer.cancel();
             timerSet = false;
-            System.out.println("ENDED");
         }
         timerSet = true;
         logInTimer = new Timer();
@@ -83,6 +86,8 @@ public class App extends Application {
     {
         try {
             setRoot("LoginPage");
+            App.window.setWidth(600);
+            App.window.setHeight(422);
             if(timerSet== true)
             {
                 logInTimer.cancel();

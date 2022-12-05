@@ -84,13 +84,17 @@ public class MainMenuPageController implements Initializable {
     @FXML
     public void goToDatabaseButton() throws IOException {
         // Retrieves Loader for Database page.
-        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
-        root3 = databaseLoader.load();
-
-        // Creates and loads scene.
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root3));
-        stage.show();
+//        FXMLLoader databaseLoader = new FXMLLoader(getClass().getResource("DatabasePage.fxml"));
+//        root3 = databaseLoader.load();
+//
+//        // Creates and loads scene.
+//        Stage stage = new Stage();
+//        stage.setScene(new Scene(root3));
+//        DatabasePageController.stageCurrent = stage;
+//        stage.show();
+        App.setRoot("DatabasePage");
+        App.window.setWidth(845);
+        App.window.setHeight(492);
 
     } // End goToDatabaseButton.
     

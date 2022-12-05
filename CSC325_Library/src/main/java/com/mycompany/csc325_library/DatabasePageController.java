@@ -3,6 +3,7 @@ package com.mycompany.csc325_library;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -26,7 +27,6 @@ import javafx.stage.Stage;
  * @author Chris Canenguez
  */
 public class DatabasePageController implements Initializable {
-
     //Configure the tableView
     @FXML
     private TableView<Book> tableView;
@@ -58,6 +58,7 @@ public class DatabasePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Set up the columns of the table.
+        
         isbnColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("isbn"));
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
@@ -126,9 +127,10 @@ public class DatabasePageController implements Initializable {
     } // End getBooks.
 
     @FXML
-    public void exitButtonEvent(ActionEvent event) {
+    public void exitButtonEvent(ActionEvent event) throws IOException {
         // Gets current scene when button is clicked then closes window.
-        Stage stage = (Stage) exitButton.getScene().getWindow();
-        stage.close();
+        App.window.setWidth(600);
+        App.window.setHeight(422);
+        App.loadMain();
     } // End exitButtonEvent.
 } // End DatabasePageController.
