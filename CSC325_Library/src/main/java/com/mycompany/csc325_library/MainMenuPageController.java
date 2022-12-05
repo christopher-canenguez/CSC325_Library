@@ -92,6 +92,8 @@ public class MainMenuPageController implements Initializable {
         stage.setScene(new Scene(root3));
         stage.show();
 
+        //App.setRoot("DatabasePage");
+
     } // End goToDatabaseButton.
     
     /**

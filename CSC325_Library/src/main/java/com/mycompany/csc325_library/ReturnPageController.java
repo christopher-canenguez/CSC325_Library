@@ -51,9 +51,11 @@ public class ReturnPageController implements Initializable {
     @FXML
     public void returnButton() throws InterruptedException, ExecutionException {
         
+        // Set labels to hidden whenever button is clicked first.
         errorLabel.setVisible(false);
         successLabel.setVisible(false);
         
+        // Checks if any of the textfields are empty.
         if (accountNumberTextField.getText().trim().equals("") || isbnTextField.getText().trim().equals("") || accountPinTextField.getText().trim().equals("")) {
             errorLabel.setText("Field(s) are empty, please try again");
             errorLabel.setVisible(true);
@@ -76,13 +78,13 @@ public class ReturnPageController implements Initializable {
         // future.get() blocks on response
         DocumentSnapshot document = future.get();
 
+        // Checks if the entered isbn exists and is available.
         if (document.getData().get("availability").equals("AVAILABLE")) {
             errorLabel.setText("The isbn you entered is currently available, please try another isbn.");
             errorLabel.setVisible(true);
             return;
         } // End if.
 
-        System.out.println("Check Test");
         if (document.exists()) {
             System.out.println("Document data: " + document.getData());
         } else {

@@ -9,14 +9,19 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Toggle;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -42,6 +47,15 @@ public class DatabasePageController implements Initializable {
     private TableColumn<Book, String> holderColumn;
 
     @FXML
+    RadioButton isbnRadioButton;
+    @FXML
+    RadioButton authorRadioButton;
+    @FXML
+    RadioButton titleRadioButton;
+
+    ToggleGroup tg = new ToggleGroup();
+
+    @FXML
     public Button exitButton;
     @FXML
     public Button loadButton;
@@ -63,6 +77,32 @@ public class DatabasePageController implements Initializable {
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         holderColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("holder"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
+
+        // Added radiobuttons to toggle group so only one could be selected at one time.
+        isbnRadioButton.setToggleGroup(tg);
+
+        authorRadioButton.setToggleGroup(tg);
+
+        titleRadioButton.setToggleGroup(tg);
+        
+        isbnRadioButton.setSelected(true);
+
+        // Added a change listener to see when a button is clicked.
+        tg.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            public void changed(ObservableValue<? extends Toggle> ob,
+                    Toggle o, Toggle n) {
+
+                RadioButton rb = (RadioButton) tg.getSelectedToggle();
+
+                if (rb != null) {
+                    String s = rb.getText();
+
+                    // change the label
+                    System.out.println(s + " was selected!");
+                }
+            }
+        });
+
         App.refreshTimer();
 
     } // End initialize.
