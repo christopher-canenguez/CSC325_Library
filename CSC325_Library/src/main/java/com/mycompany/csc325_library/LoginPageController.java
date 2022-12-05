@@ -101,6 +101,7 @@ public class LoginPageController implements Initializable {
             FXMLLoader menuLoader = new FXMLLoader(getClass().getResource("MainMenuPage.fxml"));
 //            root = menuLoader.load();
             App.loadMain();
+            App.setUpTimer();
 //
 //            Stage stage = new Stage();
 //            stage.setScene(new Scene(root));

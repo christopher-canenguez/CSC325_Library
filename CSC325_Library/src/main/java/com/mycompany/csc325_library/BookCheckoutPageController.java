@@ -53,6 +53,7 @@ public class BookCheckoutPageController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        App.refreshTimer();
         // TODO
     } // End initialize.
 

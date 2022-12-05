@@ -26,4 +26,5 @@ public class FirestoreContext {
         }
         return FirestoreClient.getFirestore();
     } // End firebase.
+    
 } // End FirestoreContext.

@@ -51,6 +51,7 @@ public class MainMenuPageController implements Initializable {
         if (LoginPageController.currentUser != null) {
             nameLabel.setText(LoginPageController.currentUser.getName());
         }
+        App.refreshTimer();
     } // End initialize.
 
     /**

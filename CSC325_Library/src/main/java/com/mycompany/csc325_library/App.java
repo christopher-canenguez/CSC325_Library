@@ -9,6 +9,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.Instant;
+import java.util.Date;
+import java.util.Timer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.apache.commons.lang3.time.DateUtils;
 
 /**
  * JavaFX Library App Created by: Christopher Canenguez, Kulsom Zaraei, and
@@ -45,24 +51,46 @@ public class App extends Application {
         setRoot("MainMenuPage");
     }
 
-    public static void testSearchParameter() {
-        GoogleBooksController gbc = new GoogleBooksController();
-
-        var gbSearch = new GBSearchCompiler().addAuthorParameter("Rowling").addTitleParameter("Potter").compile();
-
-        APISearchResult search = gbc.search(gbSearch);
-
-        System.out.println(search.totalItems);
-        System.out.println(search.items.length);
-
-        for (var item : search.items) {
-            System.out.println(item.volumeInfo.title);
-        } // End for.
-    } // End testSearchParameter.
 
     public static void main(String[] args) {
-        System.out.println("Hello CSC325!");
-        testSearchParameter();
         launch();
     } // End main.
+    
+    public static Timer logInTimer;
+    private static boolean timerSet;
+    public static void setUpTimer()
+    {
+        
+        refreshTimer();
+    }
+    
+    public static void refreshTimer()
+    {
+        if(timerSet == true)
+        {
+            System.out.println("TRY TO END");
+            logInTimer.cancel();
+            timerSet = false;
+            System.out.println("ENDED");
+        }
+        timerSet = true;
+        logInTimer = new Timer();
+        var targetTime = DateUtils.addSeconds(Date.from(Instant.now()), 5);
+        logInTimer.schedule(new LogOutTimerTask(), targetTime);
+    }
+    
+    public static void logOut()
+    {
+        try {
+            setRoot("LoginPage");
+            if(timerSet== true)
+            {
+                logInTimer.cancel();
+                timerSet = false;
+            }
+            logInTimer = null;
+        } catch (IOException ex) {
+            Logger.getLogger(App.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

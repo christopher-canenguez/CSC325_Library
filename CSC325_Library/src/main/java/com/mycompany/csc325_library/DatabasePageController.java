@@ -63,12 +63,14 @@ public class DatabasePageController implements Initializable {
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         holderColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("holder"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
+        App.refreshTimer();
 
     } // End initialize.
 
     @FXML
     private void loadRecords(ActionEvent event) {
         loadData();
+        App.refreshTimer();
     } // End loadRecords.
 
     public boolean loadData() {

@@ -45,6 +45,7 @@ public class AccountInfoPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setPasswordAndTextFields();
+        App.refreshTimer();
     } // End initialize.
 
     @FXML
