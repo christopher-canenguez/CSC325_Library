@@ -96,6 +96,8 @@ public class MainMenuPageController implements Initializable {
         App.window.setWidth(845);
         App.window.setHeight(492);
 
+        //App.setRoot("DatabasePage");
+
     } // End goToDatabaseButton.
     
     /**

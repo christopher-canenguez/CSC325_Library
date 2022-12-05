@@ -50,22 +50,20 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     } // End Parent.
-    
-    static void loadMain() throws IOException
-    {
+
+    static void loadMain() throws IOException {
         setRoot("MainMenuPage");
     }
-
 
     public static void main(String[] args) {
         launch();
     } // End main.
-    
+
     public static Timer logInTimer;
     private static boolean timerSet;
-    public static void setUpTimer()
-    {
-        
+
+    public static void setUpTimer() {
+
         refreshTimer();
     }
     
@@ -78,12 +76,11 @@ public class App extends Application {
         }
         timerSet = true;
         logInTimer = new Timer();
-        var targetTime = DateUtils.addSeconds(Date.from(Instant.now()), 5);
+        var targetTime = DateUtils.addMinutes(Date.from(Instant.now()), 1);
         logInTimer.schedule(new LogOutTimerTask(), targetTime);
     }
-    
-    public static void logOut()
-    {
+
+    public static void logOut() {
         try {
             setRoot("LoginPage");
             App.window.setWidth(600);
