@@ -4,6 +4,8 @@
  */
 package com.mycompany.csc325_library;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author user
@@ -67,6 +69,18 @@ public class User extends Person {
         for (int i = 0; i < userList.length; i++) {
             if (userList[i].getId() == accountNum) {
                 return userList[i];
+            } // End if.
+        } // End for.
+        return null;
+    } // End search.
+    
+    public static User search(ArrayList<User> userList, int accountNum)
+    {
+        for (int i = 0; i < userList.size(); i++)
+        {
+            if (userList.get(i).getId() == accountNum)
+            {
+                return userList.get(i);
             } // End if.
         } // End for.
         return null;

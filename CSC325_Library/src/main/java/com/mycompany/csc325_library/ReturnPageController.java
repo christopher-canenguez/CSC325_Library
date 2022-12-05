@@ -98,7 +98,7 @@ public class ReturnPageController implements Initializable {
 
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
-        user1 = User.search(LoginPageController.userList, accountNumber);
+        user1 = User.search(LoginPageController.users, accountNumber);
 
         // If the pin number entered doesn't match that of the pin on the account,
         // retry entering the pin code until they match.
@@ -132,6 +132,8 @@ public class ReturnPageController implements Initializable {
             ApiFuture<WriteResult> future2 = docRef.update("availability", "AVAILABLE");
             ApiFuture<WriteResult> future3 = docRef.update("holder", "");
 
+            clearTextFields();
+            
             successLabel.setVisible(true);
         } // End else.
     }

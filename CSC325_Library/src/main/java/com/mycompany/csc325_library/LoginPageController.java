@@ -4,9 +4,17 @@
  */
 package com.mycompany.csc325_library;
 
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.QueryDocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +36,7 @@ public class LoginPageController implements Initializable {
 
     private Parent root;
     public static User[] userList;
+    public static ArrayList<User> users = new ArrayList<User>();
     public static User currentUser;
 
     @FXML
@@ -43,6 +52,9 @@ public class LoginPageController implements Initializable {
     @FXML
     Label wrongPinLabel;
 
+    private boolean key;
+    private User user;
+
     /**
      * Initializes the controller class.
      *
@@ -52,12 +64,14 @@ public class LoginPageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // users list and populating array
-        userList = new User[5];
-        userList[0] = new User("Sam Hindy", 231, 231);
-        userList[1] = new User("Kelly Lane", 222, 222);
-        userList[2] = new User("Christopher Canenguez", 333, 333);
-        userList[3] = new User("Shameed Jobb", 444, 444);;
-        userList[4] = new User("Kulsom Zaraei", 555, 555);
+//        userList = new User[5];
+//        userList[0] = new User("Sam Hindy", 231, 231);
+//        userList[1] = new User("Kelly Lane", 222, 222);
+//        userList[2] = new User("Christopher Canenguez", 333, 333);
+//        userList[3] = new User("Shameed Jobb", 444, 444);;
+//        userList[4] = new User("Kulsom Zaraei", 555, 555);
+        loadUsers();
+        System.out.println(users);
     } // End initialize.
 
     @FXML
@@ -76,7 +90,7 @@ public class LoginPageController implements Initializable {
 
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
-        currentUser = User.search(userList, acctNum);
+        currentUser = User.search(users, acctNum);
 
         // If the pin number entered doesn't match that of the pin on the account,
         // retry entering the pin code until they match.
@@ -125,4 +139,36 @@ public class LoginPageController implements Initializable {
         accountNumTextField.clear(); // Reset field.
         pinCodeField.clear(); // Reset field.
     } // End clearTextFields.
+
+    public boolean loadUsers() {
+        try {
+            key = false;
+
+            // Asynchronously retrieve all documents.
+            ApiFuture<QuerySnapshot> future = App.fstore.collection("Users").get();
+
+            // future.get() blocks on response
+            List<QueryDocumentSnapshot> documents;
+
+            // Go through the firebase database, create a Person object for every document.
+            documents = future.get().getDocuments();
+
+            if (documents.size() > 0) {
+                System.out.println("Outing...");
+                for (QueryDocumentSnapshot document : documents) {
+                    user = new User(document.getData().get("name").toString(),
+                            Integer.parseInt(document.getData().get("id").toString()),
+                            Integer.parseInt(document.getData().get("pin").toString()));
+
+                    users.add(user);
+                } // End for.
+            } // End if.
+
+        } catch (InterruptedException ex) {
+            Logger.getLogger(LoginPageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(LoginPageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return key;
+    }
 } // End LoginPageController.

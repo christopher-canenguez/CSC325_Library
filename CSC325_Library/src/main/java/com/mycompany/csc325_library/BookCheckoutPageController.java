@@ -91,6 +91,7 @@ public class BookCheckoutPageController implements Initializable {
         if (document.getData().get("availability").equals("UNAVAILABLE")) {
             errorLabel.setText("The isbn you entered is reserved, please try another isbn.");
             errorLabel.setVisible(true);
+            clearTextFields();
             return;
         } // End if.
 
@@ -103,12 +104,13 @@ public class BookCheckoutPageController implements Initializable {
             System.out.println("No such document!");
             errorLabel.setText("Isbn entered doesn't exist, please enter a valid isbn.");
             errorLabel.setVisible(true);
+            clearTextFields();
             return;
         } // End else.
 
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
-        user1 = User.search(LoginPageController.userList, accountNumber);
+        user1 = User.search(LoginPageController.users, accountNumber);
 
         // If the pin number entered doesn't match that of the pin on the account,
         // retry entering the pin code until they match.
@@ -158,6 +160,6 @@ public class BookCheckoutPageController implements Initializable {
     @FXML
     public void exitButtonEvent(ActionEvent event) throws IOException {
         // Gets current scene when button is clicked then closes window.
-        App.loadMain();
+        App.loadMain(); 
     } // End exitButtonEvent.
 } // End BookCheckoutPageController.
