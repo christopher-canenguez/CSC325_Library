@@ -43,6 +43,8 @@ public class ReturnPageController implements Initializable {
     @FXML
     public Label successLabel;
 
+    private User user1;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         App.refreshTimer();
@@ -50,11 +52,11 @@ public class ReturnPageController implements Initializable {
 
     @FXML
     public void returnButton() throws InterruptedException, ExecutionException {
-        
+
         // Set labels to hidden whenever button is clicked first.
         errorLabel.setVisible(false);
         successLabel.setVisible(false);
-        
+
         // Checks if any of the textfields are empty.
         if (accountNumberTextField.getText().trim().equals("") || isbnTextField.getText().trim().equals("") || accountPinTextField.getText().trim().equals("")) {
             errorLabel.setText("Field(s) are empty, please try again");
@@ -96,31 +98,35 @@ public class ReturnPageController implements Initializable {
 
         // Based on the account Number that is entered into the text field,
         // Retrieve the designated account based on the string entered.
-        currentUser = User.search(LoginPageController.userList, accountNumber);
+        user1 = User.search(LoginPageController.userList, accountNumber);
 
         // If the pin number entered doesn't match that of the pin on the account,
         // retry entering the pin code until they match.
         //if (!(currentUser.getPinCode() == pinNum)) 
-        if (currentUser == null) {
+        if (user1 == null) {
             // Set wrong pin number text visibile if both pin numbers don't match.
             errorLabel.setText("The account number you entered doesn't exist. Please enter a valid account number.");
             errorLabel.setVisible(true);
 
             clearTextFields(); // Reset fields.
         } // End if.
-        else if (!(currentUser.getPinCode() == accountPin)) {
+        else if (!(user1.getPinCode() == accountPin)) {
             // Set wrong pin number text visibile if both pin numbers don't match.
             errorLabel.setText("The pin code is wrong for this account. Please enter again.");
             errorLabel.setVisible(true);
 
             clearTextFields(); // Reset fields.
         } // End if.
-        else if (!(currentUser.getName().equals(document.getData().get("holder"))))
-        {
+        else if (!(user1.getName().equals(document.getData().get("holder")))) {
             errorLabel.setText("Only the book holder can return this book.");
             errorLabel.setVisible(true);
-        }
-        else {
+        } else {
+
+            if (user1.getId() != currentUser.getId()) {
+                errorLabel.setText("The account number and pin you've entered don't match that of the user currently logged in.");
+                errorLabel.setVisible(true);
+                return;
+            }
             // Update an existing document
             docRef = App.fstore.collection("Books").document(isbn);
             ApiFuture<WriteResult> future2 = docRef.update("availability", "AVAILABLE");
