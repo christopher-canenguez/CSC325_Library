@@ -84,7 +84,7 @@ public class DatabasePageController implements Initializable {
         authorRadioButton.setToggleGroup(tg);
 
         titleRadioButton.setToggleGroup(tg);
-        
+
         isbnRadioButton.setSelected(true);
 
         // Added a change listener to see when a button is clicked.
@@ -99,7 +99,7 @@ public class DatabasePageController implements Initializable {
 
                     // change the label
                     System.out.println(s + " was selected!");
-                }
+                } // End if.
             }
         });
 
@@ -107,6 +107,11 @@ public class DatabasePageController implements Initializable {
 
     } // End initialize.
 
+    /**
+     * Method that loads the records from the firebase into the tableView.
+     *
+     * @param event
+     */
     @FXML
     private void loadRecords(ActionEvent event) {
         loadData();
@@ -137,33 +142,17 @@ public class DatabasePageController implements Initializable {
                             document.getData().get("availability").toString());
 
                     books.add(book);
-                }
-            }
+                } // End for.
+            } // End if.
             tableView.setItems(books);
         } catch (InterruptedException ex) {
             Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ExecutionException ex) {
             Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } // End catch.
 
         return key;
-    }
-
-    /**
-     * This method will return an ObservableList of Book Objects.
-     */
-    public void setTableView(Book[] array) {
-        ObservableList<Book> books = FXCollections.observableArrayList();
-
-        for (Book book : array) {
-            if (book != null) {
-                books.add(book);
-            }
-        } // End for.
-
-        // Load Books.
-        tableView.setItems(books);
-    } // End getBooks.
+    } // End loadData.
 
     @FXML
     public void exitButtonEvent(ActionEvent event) {
