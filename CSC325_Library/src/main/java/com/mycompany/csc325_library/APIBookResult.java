@@ -26,7 +26,7 @@ public class APIBookResult {
         public String publishedDate;
         public String description;
 
-        public IndustryIdentifier[] industrtdentifiers;
+        public IndustryIdentifier[] industryIdentifiers;
         public ReadingMode readingModes;
 
         public int pageCount;

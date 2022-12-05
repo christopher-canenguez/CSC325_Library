@@ -2,7 +2,7 @@ package com.mycompany.csc325_library;
 
 //testing
 import com.mycompany.csc325_library.Book;
-import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -13,10 +13,32 @@ import java.util.ArrayList;
  * @author kulsomzaraei
  */
 public class Library {
-
-    public ArrayList<Book> bookList;
-
-    public Library() {
+    private static Library instance;
+    
+    Book[] bookList;
+    public static Library getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new Library();
+        }
+        return instance;
+    }
+    
+    public Book getBook(int isbn)
+    {
+        for(var b: bookList)
+        {
+            if(b.getIsbn() == isbn)
+            {
+                return b;
+            }
+        }
+        return null;
+    }
+    
+    private void Library() 
+    {
 
         //authorss
         Person author1 = new Person("S.E Hinton");
