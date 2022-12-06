@@ -1,10 +1,14 @@
 package com.mycompany.csc325_library;
 
 import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.Query;
 import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
@@ -18,6 +22,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -68,10 +73,20 @@ public class DatabasePageController implements Initializable {
     ObservableList<Book> books = FXCollections.observableArrayList();
     @FXML
     private TextField searchTextField;
-
+    @FXML
+    private Button backPageButton;
+    @FXML
+    private Label pageLabel;
+    @FXML
+    private Button nextPageButton;
+    
+    private APISearchResult loadedResult;
+    private GBSearchObject searchObject;
+    int currentPage = 0;
     /**
      * Initializes the controller class.
      */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Set up the columns of the table.
@@ -81,6 +96,8 @@ public class DatabasePageController implements Initializable {
         authorColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
         holderColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("holder"));
         availabilityColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("status"));
+        nextPageButton.disableProperty().set(true);
+        backPageButton.disableProperty().set(true);
 
         // Added radiobuttons to toggle group so only one could be selected at one time.
         isbnRadioButton.setToggleGroup(tg);
@@ -121,6 +138,74 @@ public class DatabasePageController implements Initializable {
         loadData();
         App.refreshTimer();
     } // End loadRecords.
+    
+    void loadPage()
+    {
+        ArrayList<String> isbnArray = new ArrayList();
+        HashMap<String, Book> bookMap = new HashMap();
+        for (int i = 0; i < loadedResult.items.size(); i++) {
+            if(loadedResult.items.get(i).volumeInfo.industryIdentifiers != null &&
+                    loadedResult.items.get(i).volumeInfo.industryIdentifiers.length > 0 &&
+                    loadedResult.items.get(i).volumeInfo.authors != null &&
+                    loadedResult.items.get(i).volumeInfo.authors.length > 0
+                    )
+            {
+                isbnArray.add(loadedResult.items.get(i).volumeInfo.industryIdentifiers[0].identifier);
+                book = new Book(loadedResult.items.get(i).volumeInfo.title,
+                            new Person(loadedResult.items.get(i).volumeInfo.authors[0]),
+                            "",
+                            loadedResult.items.get(i).volumeInfo.industryIdentifiers[0].identifier,
+                            "NOT IN STOCK");
+                
+                bookMap.put(loadedResult.items.get(i).volumeInfo.industryIdentifiers[0].identifier,
+                        book);
+            }
+            
+        }
+        var bookCollection = App.fstore.collection("Books");
+            
+        Query query = bookCollection.whereIn("isbn", isbnArray);
+        ApiFuture<QuerySnapshot> querySnapshot = query.get();
+        System.out.println("");
+        try {
+            for (DocumentSnapshot document : querySnapshot.get().getDocuments()) {
+                book = new Book(document.getData().get("title").toString(),
+                        new Person(document.getData().get("author").toString()),
+                        document.getData().get("holder").toString(),
+                        document.getData().get("isbn").toString(),
+                        document.getData().get("availability").toString());
+                
+                bookMap.put(document.getData().get("isbn").toString(),book);
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ExecutionException ex) {
+            Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        for(var v: bookMap.values())
+        {
+            books.add(v);
+        }
+        tableView.setItems(books);
+    }
+    
+    public boolean loadData(int page)
+    {
+        try {
+            key = false;
+            tableView.getItems().clear(); // Clear the table when reading.
+
+            loadedResult = new GoogleBooksController().search(searchObject, (page-1)*10);
+            System.out.println(loadedResult.items.size());
+            nextPageButton.disableProperty().set(currentPage * 10 >= loadedResult.totalItems);
+            backPageButton.disableProperty().set(currentPage <= 1);
+            pageLabel.setText(""+currentPage);
+            loadPage();
+        } catch (Exception ex) {
+            Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return key;
+    }
 
     public boolean loadData() {
         try {
@@ -140,37 +225,17 @@ public class DatabasePageController implements Initializable {
             {
                 gbSearchCompiler.addTitleParameter(searchTextField.getText());
             }
-            var results = new GoogleBooksController().search(gbSearchCompiler.compile());
-//            results.items;
-
-            // Asynchronously retrieve all documents.
-            ApiFuture<QuerySnapshot> future = App.fstore.collection("Books").get();
-
-            // future.get() blocks on response
-            List<QueryDocumentSnapshot> documents;
-
-            // Go through the firebase database, create a Person object for every document.
-            documents = future.get().getDocuments();
-
-            if (documents.size() > 0) {
-                System.out.println("Outing...");
-                for (QueryDocumentSnapshot document : documents) {
-                    book = new Book(document.getData().get("title").toString(),
-                            new Person(document.getData().get("author").toString()),
-                            document.getData().get("holder").toString(),
-                            document.getData().get("isbn").toString(),
-                            document.getData().get("availability").toString());
-
-                    books.add(book);
-                } // End for.
-            } // End if.
-            tableView.setItems(books);
-        } catch (InterruptedException ex) {
+            searchObject = gbSearchCompiler.compile();
+            loadedResult = new GoogleBooksController().search(searchObject);
+            System.out.println(loadedResult.items.size());
+            currentPage = 1;
+            nextPageButton.disableProperty().set(currentPage * 10 >= loadedResult.totalItems);
+            backPageButton.disableProperty().set(currentPage <= 1);
+            pageLabel.setText(""+currentPage);
+            loadPage();
+        } catch (Exception ex) {
             Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ExecutionException ex) {
-            Logger.getLogger(DatabasePageController.class.getName()).log(Level.SEVERE, null, ex);
-        } // End catch.
-
+        }
         return key;
     } // End loadData.
 
@@ -181,4 +246,18 @@ public class DatabasePageController implements Initializable {
         App.window.setHeight(422);
         App.loadMain();
     } // End exitButtonEvent.
+
+    @FXML
+    private void backPage(ActionEvent event) {
+        currentPage--;
+        loadData(currentPage);
+        App.refreshTimer();
+    }
+
+    @FXML
+    private void forwardPage(ActionEvent event) {
+        currentPage++;
+        loadData(currentPage);
+        App.refreshTimer();
+    }
 } // End DatabasePageController.

@@ -2,6 +2,7 @@ package com.mycompany.csc325_library;
 
 //testing
 import com.mycompany.csc325_library.Book;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -15,7 +16,7 @@ import java.util.List;
 public class Library {
     private static Library instance;
     
-    Book[] bookList;
+    ArrayList<Book> bookList;
     public static Library getInstance()
     {
         if(instance == null)
@@ -25,11 +26,11 @@ public class Library {
         return instance;
     }
     
-    public Book getBook(int isbn)
+    public Book getBook(String isbn)
     {
         for(var b: bookList)
         {
-            if(b.getIsbn() == isbn)
+            if(b.getIsbn().equals(isbn))
             {
                 return b;
             }

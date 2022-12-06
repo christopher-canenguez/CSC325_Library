@@ -59,9 +59,7 @@ public class GoogleBooksController extends HttpController {
             var resultIdentifiers = b.volumeInfo.industryIdentifiers;
             for(var id: resultIdentifiers)
             {
-                Book databaseBook = Library.getInstance().getBook(
-                        Integer.parseInt(
-                                id.identifier));
+                Book databaseBook = Library.getInstance().getBook(id.identifier);
                 
                 if(databaseBook != null)
                 {
@@ -96,27 +94,64 @@ public class GoogleBooksController extends HttpController {
                 GsonBuilder builder = new GsonBuilder();
                 Gson gson = builder.create();
                 APISearchResult result = gson.fromJson(sr, APISearchResult.class);
-                if(result.totalItems > 10)
-                {
-                    int index = 10;
-                    APISearchResult lastResult = result;
-                    while(index < lastResult.totalItems)
-                    {
-                        results = sendSearch(searchObject, index);
-                        sr = new StringReader(results);
-                        lastResult = gson.fromJson(sr, APISearchResult.class);
-                        result.combine(lastResult);
-                        index += 10;
-                    }
-                    
-                }
+//                if(result.totalItems > 10)
+//                {
+//                    int index = 10;
+//                    int items = result.totalItems;
+//                    APISearchResult lastResult = result;
+//                    System.out.println("items: "+items);
+//                    while(index < items)
+//                    {
+//                        results = sendSearch(searchObject, index);
+//                        sr = new StringReader(results);
+//                        lastResult = gson.fromJson(sr, APISearchResult.class);
+//                        result.combine(lastResult);
+//                        index += 10;
+//                    }
+//                    
+//                }
                 return result;
 
             } catch (Exception e) {
-                System.out.println(e);
+                throw e;
             }
         }
 
+        return null;
+    }
+    
+    
+    public APISearchResult search(GBSearchObject searchObject, int startIndex)
+    {
+        var results = sendSearch(searchObject, startIndex);
+        if (results != null) {
+            try {
+                StringReader sr = new StringReader(results);
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
+                APISearchResult result = gson.fromJson(sr, APISearchResult.class);
+//                if(result.totalItems > 10)
+//                {
+//                    int index = 10;
+//                    int items = result.totalItems;
+//                    APISearchResult lastResult = result;
+//                    System.out.println("items: "+items);
+//                    while(index < items)
+//                    {
+//                        results = sendSearch(searchObject, index);
+//                        sr = new StringReader(results);
+//                        lastResult = gson.fromJson(sr, APISearchResult.class);
+//                        result.combine(lastResult);
+//                        index += 10;
+//                    }
+//                    
+//                }
+                return result;
+
+            } catch (Exception e) {
+                throw e;
+            } 
+        }
         return null;
     }
 

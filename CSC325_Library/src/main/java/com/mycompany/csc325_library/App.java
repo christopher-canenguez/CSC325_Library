@@ -76,7 +76,7 @@ public class App extends Application {
         }
         timerSet = true;
         logInTimer = new Timer();
-        var targetTime = DateUtils.addMinutes(Date.from(Instant.now()), 1);
+        var targetTime = DateUtils.addMinutes(Date.from(Instant.now()), 5);
         logInTimer.schedule(new LogOutTimerTask(), targetTime);
     }
 
